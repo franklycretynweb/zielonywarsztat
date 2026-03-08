@@ -11,7 +11,7 @@ const services = [
 
 export default function Footer() {
   return (
-    <footer className="bg-sage-900 pt-16 pb-24 lg:pb-10 px-5">
+    <footer className="bg-sage-900 pt-16 pb-10 px-5">
       <div className="max-w-5xl mx-auto">
         {/* Top — CTA strip */}
         <div className="bg-sage-800 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 mb-14">
@@ -40,10 +40,10 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-start">
             <Image
               src="/logo.webp"
-              height={44}
-              width={140}
+              height={160}
+              width={500}
               alt="Zielony Warsztat Piotra"
-              className="h-11 w-auto brightness-125 mb-4"
+              className="h-40 w-auto brightness-125 mb-4"
             />
             <p className="font-body text-sage-400 text-sm leading-relaxed text-center md:text-left">
               Usługi ogrodnicze w Szczecinie i okolicach. Pielęgnacja, przycinanie, nasadzenia i zakładanie ogrodów.

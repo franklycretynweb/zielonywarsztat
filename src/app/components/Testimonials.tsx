@@ -7,7 +7,7 @@ const testimonials = [
   {
     name: "Tomasz W.",
     location: "Police",
-    text: "Bałem się, że jako nowa firma będą nieprzygotowani. Nic bardziej mylnego — profesjonalny sprzęt, jasny plan działania i codziennie sprzątali po sobie. Polecam każdemu.",
+    text: "Profesjonalny sprzęt, jasny plan działania i codziennie sprzątali po sobie. Widać, że Piotr traktuje każde zlecenie poważnie. Polecam każdemu.",
   },
   {
     name: "Anna i Marek D.",
@@ -18,7 +18,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="opinie" className="py-24 md:py-32 px-5 bg-sage-50">
+    <section id="opinie" className="py-24 md:py-32 px-5 bg-sage-100">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <p className="font-body text-sage-400 text-sm uppercase tracking-widest mb-3">

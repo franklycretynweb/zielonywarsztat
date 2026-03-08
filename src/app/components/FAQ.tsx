@@ -4,10 +4,6 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "Jesteście nową firmą — skąd mam wiedzieć, że to zrobicie dobrze?",
-    a: "Firma jest nowa, ale doświadczenie nie. Piotr lata pracował w rzemieślniczym fachu, gdzie liczy się precyzja i dotrzymanie słowa. Każdą realizację traktujemy jak wizytówkę — bo nią jest. Dlatego oferujemy gwarancję: jeśli coś nie wyjdzie, wracamy i poprawiamy na nasz koszt.",
-  },
-  {
     q: "Czy cena z wyceny może się zmienić w trakcie prac?",
     a: "Nie. Cena, którą podajemy po bezpłatnej wizycie, jest ostateczna. Jedyny wyjątek — jeśli Ty sam zdecydujesz się na dodatkowe prace, których nie było w pierwotnym planie. Wtedy wyceniamy je osobno i czekamy na Twoją zgodę.",
   },

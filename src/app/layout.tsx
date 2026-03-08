@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lora, DM_Sans } from "next/font/google";
+import { Lora, DM_Sans, Caveat } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/Nav";
 
@@ -11,6 +11,12 @@ const lora = Lora({
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin", "latin-ext"],
   display: "swap",
 });
@@ -28,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body className={`${lora.variable} ${dmSans.variable} antialiased`}>
+      <body className={`${lora.variable} ${dmSans.variable} ${caveat.variable} antialiased`}>
         <Nav />
         {children}
       </body>

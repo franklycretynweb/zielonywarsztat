@@ -10,7 +10,7 @@ const towns = [
 
 export default function ServiceArea() {
   return (
-    <section className="py-24 md:py-32 px-5 bg-sage-50">
+    <section className="py-24 md:py-32 px-5 bg-sage-100">
       <div className="max-w-4xl mx-auto text-center">
         <p className="font-body text-sage-400 text-sm uppercase tracking-widest mb-3">
           Zasięg

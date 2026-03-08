@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function WhyGarden() {
   return (
-    <section className="py-24 md:py-32 px-5 bg-sage-50">
+    <section className="py-24 md:py-32 px-5 bg-sage-100">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left — real garden photo in organic shape */}
@@ -46,8 +46,7 @@ export default function WhyGarden() {
               nie zastąpi żaden salon.
             </p>
             <p className="font-body text-brown-500 text-lg leading-relaxed italic">
-              Nie musisz być ogrodnikiem. Wystarczy, że zadzwonisz do kogoś, kto
-              się na tym zna.
+              Nie musisz wiedzieć nic o ogrodnictwie. My to wiemy za Ciebie.
             </p>
           </div>
         </div>

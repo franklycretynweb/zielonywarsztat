@@ -31,7 +31,7 @@ export default function Contact() {
             className="font-heading font-bold"
             style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
           >
-            Skontaktuj się z nami
+            Umów bezpłatną wizytę
           </h2>
         </div>
 
@@ -102,10 +102,10 @@ export default function Contact() {
                   </svg>
                 </div>
                 <h3 className="font-heading text-2xl font-bold mb-2 text-brown-700">
-                  Dziękujemy!
+                  Wiadomość wysłana!
                 </h3>
                 <p className="font-body text-brown-500">
-                  Oddzwonimy tak szybko, jak to możliwe — zwykle w ciągu 2 godzin.
+                  Piotr oddzwoni osobiście — zwykle w ciągu 2 godzin, najdalej następnego dnia.
                 </p>
               </div>
             ) : (
@@ -121,37 +121,37 @@ export default function Contact() {
                   Wypełnienie zajmuje mniej niż 30 sekund
                 </p>
 
-                <div className="mb-5">
-                  <label className="block font-body text-brown-600 text-sm font-medium mb-1.5">
+                <div className="mb-8">
+                  <label className="block font-body text-brown-600 text-xs uppercase tracking-widest mb-2">
                     Imię
                   </label>
                   <input
                     type="text"
                     required
                     placeholder="np. Jan Kowalski"
-                    className="w-full px-4 py-3.5 rounded-xl border border-sage-200 font-body text-brown-700 text-base focus:outline-none focus:border-sage-400 focus:ring-2 focus:ring-sage-200/50 transition-colors bg-linen-50/50 placeholder:text-brown-300"
+                    className="w-full px-0 py-2 border-b-2 border-sage-200 font-body text-brown-800 text-lg focus:outline-none focus:border-brown-800 transition-colors bg-transparent placeholder:text-brown-200"
                   />
                 </div>
 
-                <div className="mb-5">
-                  <label className="block font-body text-brown-600 text-sm font-medium mb-1.5">
+                <div className="mb-8">
+                  <label className="block font-body text-brown-600 text-xs uppercase tracking-widest mb-2">
                     Numer telefonu
                   </label>
                   <input
                     type="tel"
                     required
                     placeholder="np. 600 123 456"
-                    className="w-full px-4 py-3.5 rounded-xl border border-sage-200 font-body text-brown-700 text-base focus:outline-none focus:border-sage-400 focus:ring-2 focus:ring-sage-200/50 transition-colors bg-linen-50/50 placeholder:text-brown-300"
+                    className="w-full px-0 py-2 border-b-2 border-sage-200 font-body text-brown-800 text-lg focus:outline-none focus:border-brown-800 transition-colors bg-transparent placeholder:text-brown-200"
                   />
                 </div>
 
-                <div className="mb-5">
-                  <label className="block font-body text-brown-600 text-sm font-medium mb-1.5">
+                <div className="mb-8">
+                  <label className="block font-body text-brown-600 text-xs uppercase tracking-widest mb-2">
                     Czego potrzebujesz?
                   </label>
                   <select
                     required
-                    className="w-full px-4 py-3.5 rounded-xl border border-sage-200 font-body text-brown-700 text-base focus:outline-none focus:border-sage-400 focus:ring-2 focus:ring-sage-200/50 transition-colors bg-linen-50/50 appearance-none"
+                    className="w-full px-0 py-2 border-b-2 border-sage-200 font-body text-brown-800 text-lg focus:outline-none focus:border-brown-800 transition-colors bg-transparent appearance-none rounded-none"
                     defaultValue=""
                   >
                     <option value="" disabled>
@@ -165,15 +165,15 @@ export default function Contact() {
                   </select>
                 </div>
 
-                <div className="mb-7">
-                  <label className="block font-body text-brown-600 text-sm font-medium mb-1.5">
+                <div className="mb-10">
+                  <label className="block font-body text-brown-600 text-xs uppercase tracking-widest mb-2">
                     Wiadomość{" "}
-                    <span className="text-brown-300 font-normal">(opcjonalne)</span>
+                    <span className="text-brown-300 font-normal lowercase tracking-normal">(opcjonalne)</span>
                   </label>
                   <textarea
-                    rows={3}
+                    rows={1}
                     placeholder="Opisz krótko co potrzebujesz..."
-                    className="w-full px-4 py-3.5 rounded-xl border border-sage-200 font-body text-brown-700 text-base focus:outline-none focus:border-sage-400 focus:ring-2 focus:ring-sage-200/50 transition-colors bg-linen-50/50 resize-none placeholder:text-brown-300"
+                    className="w-full px-0 py-2 border-b-2 border-sage-200 font-body text-brown-800 text-lg focus:outline-none focus:border-brown-800 transition-colors bg-transparent resize-none placeholder:text-brown-200"
                   />
                 </div>
 

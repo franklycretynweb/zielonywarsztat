@@ -3,32 +3,32 @@ import Image from "next/image";
 const services = [
   {
     name: "Pielęgnacja trawników",
-    desc: "Koszenie, nawożenie, wertykulacja — regularne wizyty lub jednorazowa interwencja.",
+    desc: "Koszenie, nawożenie, wertykulacja — trawnik, który wygląda jak powinien. Regularnie albo jednorazowo.",
     image: "/photos/services/lawncare.webp",
   },
   {
     name: "Przycinanie krzewów i drzewek",
-    desc: "Formowanie żywopłotów, cięcie krzewów ozdobnych i owocowych.",
+    desc: "Formowanie żywopłotów i cięcie krzewów — z głową, precyzyjnie, z efektem który widać przez cały sezon.",
     image: "/photos/services/pruning.webp",
   },
   {
     name: "Wycinki kompleksowe",
-    desc: "Usuwanie drzew i krzewów z korzeniami, wywóz gałęzi i porządkowanie terenu.",
+    desc: "Usuwamy drzewa i krzewy z korzeniami, wywozimy wszystko i zostawiamy czysty teren. Żadnych śladów.",
     image: "/photos/services/treeremoval.webp",
   },
   {
     name: "Nasadzanie i przesadzanie",
-    desc: "Dobór roślin do warunków w Twoim ogrodzie i profesjonalne sadzenie.",
+    desc: "Dobieramy rośliny do gleby i nasłonecznienia Twojej działki — i sadzimy tam, gdzie będą rosły najlepiej.",
     image: "/photos/services/planting.webp",
   },
   {
     name: "Projektowanie i zakładanie ogrodów",
-    desc: "Od pustej działki do gotowego ogrodu — trawnik, rabaty, ścieżki, nasadzenia.",
+    desc: "Od pustej działki do ogrodu, który robi wrażenie — projekt, trawnik, rabaty, ścieżki. Wszystko pod klucz.",
     image: "/photos/services/gardendesign.webp",
   },
   {
     name: "Układanie kostki brukowej",
-    desc: "Podjazdy, ścieżki, tarasy i chodniki — równo, solidnie i na lata.",
+    desc: "Podjazdy, tarasy i ścieżki — ułożone na solidnej podbudowie. Równo, bez opadania, bez trawy między fugami.",
     image: "/photos/services/paving.webp",
   },
 ];
@@ -53,7 +53,7 @@ export default function Services() {
           {services.map((s) => (
             <div
               key={s.name}
-              className="card-hover bg-white rounded-2xl overflow-hidden border border-sage-100/80"
+              className="card-hover group bg-white rounded-2xl overflow-hidden border border-sage-100/80"
               style={{ boxShadow: "var(--shadow-sm)" }}
             >
               <div className="relative aspect-[3/2] overflow-hidden">
@@ -61,7 +61,7 @@ export default function Services() {
                   src={s.image}
                   alt={s.name}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
@@ -79,7 +79,7 @@ export default function Services() {
 
         <div className="text-center mt-14">
           <p className="font-body text-brown-400 mb-5 text-lg">
-            Nie wiesz czego potrzebujesz? Zadzwoń — doradzimy bezpłatnie
+            Nie wiesz od czego zacząć? Zadzwoń — powiemy Ci szczerze, co ma sens, a co nie.
           </p>
           <a href="tel:+48123456789" className="btn-cta">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">

@@ -5,7 +5,7 @@ import WhyGarden from "./components/WhyGarden";
 import MeetPiotr from "./components/MeetPiotr";
 import WhyUs from "./components/WhyUs";
 import HowItWorks from "./components/HowItWorks";
-import StarterOffer from "./components/StarterOffer";
+
 import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import ServiceArea from "./components/ServiceArea";
@@ -23,7 +23,7 @@ export default function Home() {
       <MeetPiotr />
       <WhyUs />
       <HowItWorks />
-      <StarterOffer />
+
       <Testimonials />
       <FAQ />
       <ServiceArea />

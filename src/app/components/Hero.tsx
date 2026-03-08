@@ -16,34 +16,37 @@ export default function Hero() {
         quality={85}
         sizes="100vw"
       />
-      {/* Strong dark overlay for text readability */}
+      {/* Dark overlay — uniform enough for text readability, slightly heavier at edges */}
       <div
         className="absolute inset-0 z-[1]"
         style={{
           background:
-            "linear-gradient(180deg, rgba(20,26,12,0.82) 0%, rgba(25,32,16,0.70) 50%, rgba(20,26,12,0.85) 100%)",
+            "linear-gradient(180deg, rgba(20,26,12,0.7) 0%, rgba(20,26,12,0.6) 40%, rgba(20,26,12,0.65) 70%, rgba(20,26,12,0.8) 100%)",
         }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto">
-        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-4 py-1.5 mb-8">
-          <div className="w-2 h-2 rounded-full bg-sage-300" />
-          <span className="font-body text-sage-200 text-sm">Szczecin i okolice</span>
+      {/* Main content */}
+      <div className="relative z-10 max-w-4xl mx-auto w-full">
+        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-4 py-1.5 mb-8 mx-auto flex w-max">
+          <div className="w-2 h-2 rounded-full bg-sage-300 shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+          <span className="font-body text-white/90 text-sm font-medium tracking-wide uppercase">Szczecin i okolice</span>
         </div>
 
         <h1
-          className="font-heading font-bold text-white mb-7 leading-[1.05] tracking-tight drop-shadow-lg"
-          style={{ fontSize: "clamp(2.5rem, 1.5rem + 5vw, 4.5rem)" }}
+          className="font-heading font-bold mb-7 leading-[1.05] tracking-tight"
+          style={{ fontSize: "clamp(2.5rem, 1.5rem + 5vw, 4.5rem)", textShadow: "0 2px 24px rgba(0,0,0,0.5)", color: "#f5f0e6" }}
         >
-          Twój ogród<br className="hidden sm:block" /> w dobrych rękach
+          Ogród, z którego<br className="hidden sm:block" />{" "}
+          <span style={{ color: "#c8d6b8" }}>będziesz dumny</span>
         </h1>
 
         <p
-          className="font-body text-white/85 mb-12 max-w-2xl mx-auto leading-relaxed"
+          className="font-body text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed font-light drop-shadow-md"
           style={{ fontSize: "clamp(1.05rem, 0.9rem + 0.8vw, 1.35rem)" }}
         >
-          Pielęgnacja, przycinanie, nasadzenia, kostka brukowa i zakładanie
-          ogrodów — przyjedziemy do Ciebie bezpłatnie i wycenimy bez zobowiązań.
+          Pielęgnacja, przycinanie, nasadzenia, kostka — przyjedziemy,
+          wycenimy za darmo. Cena z wyceny to cena na fakturze.
+          Żadnych niespodzianek.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -58,13 +61,13 @@ export default function Hero() {
           </a>
           <a
             href="#uslugi"
-            className="text-white/70 hover:text-white font-body text-base underline underline-offset-4 decoration-white/30 hover:decoration-white/60 transition-colors"
+            className="text-white hover:text-white font-body text-base font-medium underline underline-offset-8 decoration-white/40 hover:decoration-white/100 transition-all duration-300 drop-shadow-md"
           >
             Zobacz nasze usługi
           </a>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+        <div className="flex flex-row items-center justify-center gap-3 sm:gap-5">
           {[
             { label: "Bezpłatna wizyta", sub: "bez zobowiązań" },
             { label: "Stała cena", sub: "bez niespodzianek" },
@@ -72,12 +75,12 @@ export default function Hero() {
           ].map((item) => (
             <div
               key={item.label}
-              className="bg-white/[0.08] backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-4 text-center min-w-[160px]"
+              className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-3 py-3 sm:px-6 sm:py-4 text-center flex-1 sm:flex-none sm:min-w-[160px] shadow-lg"
             >
-              <p className="font-heading font-semibold text-white text-base leading-tight">
+              <p className="font-heading font-semibold text-white text-sm sm:text-base leading-tight">
                 {item.label}
               </p>
-              <p className="font-body text-white/50 text-xs mt-1">{item.sub}</p>
+              <p className="font-body text-white/70 text-[10px] sm:text-xs mt-1 uppercase tracking-wider">{item.sub}</p>
             </div>
           ))}
         </div>

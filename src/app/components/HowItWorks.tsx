@@ -12,7 +12,7 @@ const steps = [
   {
     num: "03",
     title: "Wykonujemy pracę",
-    desc: "Realizujemy projekt, a Ty cieszysz się ogrodem.",
+    desc: "Wykonujemy pracę terminowo, sprzątamy po sobie — Ty odbierasz gotowy ogród.",
   },
 ];
 

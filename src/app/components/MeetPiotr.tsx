@@ -67,18 +67,22 @@ export default function MeetPiotr() {
               Poznaj Piotra
             </h2>
             <p className="font-body text-brown-600 text-lg leading-relaxed mb-5">
-              Przez lata naprawiałem samochody. Nauczyłem się, że dobra robota to
-              dobra robota — niezależnie od tego, czy to silnik czy ogród.
+              Najbardziej lubię pracę, w której na koniec dnia widać, że coś
+              naprawdę się zmieniło. Ogród daje właśnie takie poczucie — z czasem
+              staje się piękniejszy i bardziej uporządkowany.
             </p>
             <p className="font-body text-brown-600 text-lg leading-relaxed mb-5">
-              Punktualność, porządek i szacunek do cudzej własności — to biorę z
-              warsztatu. Dokładam do tego miłość do roślin i zieleń, która
-              sprawia, że codziennie rano chcę wyjść do pracy.
+              W swojej pracy stawiam na dokładność, porządek i szacunek do
+              miejsca, w którym pracuję.
             </p>
-            <p className="font-body text-brown-500 text-lg leading-relaxed italic">
-              Jestem nowy w branży ogrodniczej, ale nie jestem nowy w ciężkiej
-              pracy. Każdy klient, każdy ogród — to moja wizytówka.
+            <p className="font-body text-brown-500 text-lg leading-relaxed italic mb-8">
+              Każdy ogród traktuję jak swoją wizytówkę. Dlatego dbam o to, żeby
+              efekt cieszył właściciela przez długi czas.
             </p>
+            <div className="mt-8 pt-6 border-t border-sage-200/50">
+              <p className="font-[var(--font-caveat),cursive] text-5xl text-brown-800 opacity-90 tracking-wider">Piotr</p>
+              <p className="font-body text-sm text-sage-500 mt-2 uppercase tracking-widest">Założyciel & Główny Wykonawca</p>
+            </div>
           </div>
         </div>
 
