@@ -16,7 +16,7 @@ export default function Hero() {
         quality={85}
         sizes="100vw"
       />
-      {/* Dark overlay — uniform enough for text readability, slightly heavier at edges */}
+      {/* Dark overlay */}
       <div
         className="absolute inset-0 z-[1]"
         style={{
@@ -49,9 +49,9 @@ export default function Hero() {
           Żadnych niespodzianek.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="tel:+48123456789"
+            href="tel:+48578816720"
             className="btn-cta !px-8 !py-4 !min-h-[56px] !text-lg shadow-lg"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
@@ -65,24 +65,6 @@ export default function Hero() {
           >
             Zobacz nasze usługi
           </a>
-        </div>
-
-        <div className="flex flex-row items-center justify-center gap-3 sm:gap-5">
-          {[
-            { label: "Bezpłatna wizyta", sub: "bez zobowiązań" },
-            { label: "Stała cena", sub: "bez niespodzianek" },
-            { label: "Odpowiedź w 24h", sub: "zwykle szybciej" },
-          ].map((item) => (
-            <div
-              key={item.label}
-              className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-3 py-3 sm:px-6 sm:py-4 text-center flex-1 sm:flex-none sm:min-w-[160px] shadow-lg"
-            >
-              <p className="font-heading font-semibold text-white text-sm sm:text-base leading-tight">
-                {item.label}
-              </p>
-              <p className="font-body text-white/70 text-[10px] sm:text-xs mt-1 uppercase tracking-wider">{item.sub}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

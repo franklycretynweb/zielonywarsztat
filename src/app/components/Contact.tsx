@@ -1,6 +1,27 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import ScrollReveal from "./ScrollReveal";
+
+const steps = [
+  {
+    num: "01",
+    title: "Zadzwoń lub napisz",
+    desc: "Opisz co potrzebujesz — doradzimy już przy pierwszej rozmowie.",
+  },
+  {
+    num: "02",
+    title: "Bezpłatna wizyta",
+    desc: "Przyjedziemy, ocenimy teren i przedstawimy wycenę. Bez zobowiązań.",
+  },
+  {
+    num: "03",
+    title: "Wykonujemy pracę",
+    desc: "Terminowo, ze sprzątaniem po sobie — Ty odbierasz gotowy ogród.",
+  },
+];
+
+const towns = ["Szczecin", "Police", "Goleniów", "Stargard", "Gryfino", "Nowe Warpno", "Świnoujście"];
 
 const serviceOptions = [
   "Pielęgnacja trawników",
@@ -21,19 +42,41 @@ export default function Contact() {
   }
 
   return (
-    <section id="kontakt" className="py-24 md:py-32 px-5 bg-linen-50">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="font-body text-sage-400 text-sm uppercase tracking-widest mb-3">
-            Kontakt
-          </p>
-          <h2
-            className="font-heading font-bold"
-            style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
-          >
-            Umów bezpłatną wizytę
-          </h2>
-        </div>
+    <section id="kontakt" className="relative py-24 md:py-32 px-5 bg-sage-100">
+      <div className="max-w-5xl mx-auto relative z-[1]">
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <span className="section-kicker font-body text-sage-400">
+              Kontakt
+            </span>
+            <h2
+              className="font-heading font-bold"
+              style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
+            >
+              Umów bezpłatną wizytę
+            </h2>
+          </div>
+        </ScrollReveal>
+
+        {/* How it works — 3 steps */}
+        <ScrollReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 mb-16">
+            {steps.map((s, i) => (
+              <div key={s.num} className="text-center">
+                <span
+                  className="font-heading font-bold text-sage-500 leading-none"
+                  style={{ fontSize: "clamp(3rem, 2.5rem + 1.5vw, 4.5rem)" }}
+                >
+                  {s.num}
+                </span>
+                <h3 className="font-heading text-xl font-bold mt-3 mb-2 text-brown-800">
+                  {s.title}
+                </h3>
+                <p className="font-body text-brown-600 text-base leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
           {/* Left — contact info */}
@@ -43,16 +86,16 @@ export default function Contact() {
                 Telefon
               </p>
               <a
-                href="tel:+48123456789"
+                href="tel:+48578816720"
                 className="font-heading font-bold text-brown-700 hover:text-terra-500 transition-colors"
                 style={{ fontSize: "clamp(1.5rem, 1.2rem + 1.5vw, 2rem)" }}
               >
-                +48 123 456 789
+                +48 578 816 720
               </a>
             </div>
 
             <a
-              href="https://wa.me/48123456789"
+              href="https://wa.me/48578816720"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-[#25D366] text-white font-body font-semibold px-6 py-3 rounded-xl mb-10 hover:bg-[#20bd5a] transition-colors min-h-[48px]"
@@ -192,6 +235,27 @@ export default function Contact() {
             )}
           </div>
         </div>
+
+        {/* Service area */}
+        <ScrollReveal>
+          <div className="mt-16 pt-10 border-t border-sage-300/60 text-center">
+            <p className="font-heading font-semibold text-brown-700 text-base uppercase tracking-widest mb-5">Gdzie jesteśmy?</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {towns.map((town) => (
+                <span
+                  key={town}
+                  className="bg-white text-brown-700 font-body font-semibold px-4 py-2 rounded-full text-sm border border-sage-300"
+                  style={{ boxShadow: "var(--shadow-sm)" }}
+                >
+                  {town}
+                </span>
+              ))}
+              <span className="bg-sage-200 text-sage-700 font-body font-semibold px-4 py-2 rounded-full text-sm border border-sage-300">
+                + okolice do 50 km
+              </span>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

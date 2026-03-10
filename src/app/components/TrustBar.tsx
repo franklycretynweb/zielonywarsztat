@@ -36,22 +36,40 @@ const items = [
   },
 ];
 
+const stats = [
+  { number: "200+", label: "zadowolonych klientów" },
+  { number: "10 lat", label: "w ogrodnictwie" },
+  { number: "50 km", label: "zasięg od Szczecina" },
+  { number: "100%", label: "cena bez niespodzianek" },
+];
+
 export default function TrustBar() {
   return (
-    <section className="bg-sage-800 py-6">
+    <section className="bg-sage-800 py-6 pb-10">
       <div className="max-w-6xl mx-auto px-5">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
           {items.map((item) => (
-            <div
-              key={item.text}
-              className="flex items-center gap-3"
-            >
+            <div key={item.text} className="flex items-center gap-3">
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-sage-200">
                 {item.icon}
               </div>
               <span className="font-body text-sage-100 text-sm leading-tight">
                 {item.text}
               </span>
+            </div>
+          ))}
+        </div>
+
+        <div className="border-t border-white/10 mt-8 pt-8 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {stats.map((s) => (
+            <div key={s.label} className="text-center">
+              <p
+                className="font-heading font-bold text-linen-100 leading-none mb-1"
+                style={{ fontSize: "clamp(1.75rem, 1.5rem + 1.2vw, 2.5rem)" }}
+              >
+                {s.number}
+              </p>
+              <p className="font-body text-sage-400 text-xs leading-snug">{s.label}</p>
             </div>
           ))}
         </div>

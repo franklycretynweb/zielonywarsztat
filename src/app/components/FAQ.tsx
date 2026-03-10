@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import SectionDivider from "./SectionDivider";
+import ScrollReveal from "./ScrollReveal";
 
 const faqs = [
   {
@@ -25,19 +27,23 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 md:py-32 px-5 bg-linen-50">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="font-body text-sage-400 text-sm uppercase tracking-widest mb-3">
-            FAQ
-          </p>
-          <h2
-            className="font-heading font-bold"
-            style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
-          >
-            Często zadawane pytania
-          </h2>
-        </div>
+    <section id="faq" className="relative py-24 md:py-32 px-5 bg-sage-100">
+      <SectionDivider variant="testimonials-to-faq" />
+
+      <div className="max-w-3xl mx-auto relative z-[1]">
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <span className="section-kicker font-body text-sage-400">
+              FAQ
+            </span>
+            <h2
+              className="font-heading font-bold"
+              style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
+            >
+              Często zadawane pytania
+            </h2>
+          </div>
+        </ScrollReveal>
 
         <div className="space-y-3">
           {faqs.map((faq, i) => (
@@ -82,7 +88,7 @@ export default function FAQ() {
         <div className="text-center mt-12">
           <p className="font-body text-brown-400">
             Masz inne pytanie?{" "}
-            <a href="tel:+48123456789" className="text-terra-500 hover:text-terra-600 font-medium underline underline-offset-2 transition-colors">
+            <a href="tel:+48578816720" className="text-terra-500 hover:text-terra-600 font-medium underline underline-offset-2 transition-colors">
               Zadzwoń — chętnie odpowiemy
             </a>
           </p>

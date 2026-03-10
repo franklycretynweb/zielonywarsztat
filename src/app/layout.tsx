@@ -24,7 +24,7 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: "Zielony Warsztat Piotra — Usługi ogrodnicze Szczecin",
   description:
-    "Pielęgnacja trawników, przycinanie krzewów, nasadzenia, kostka brukowa i zakładanie ogrodów w Szczecinie i okolicach. Bezpłatna wycena. Zadzwoń: +48 123 456 789",
+    "Pielęgnacja trawników, przycinanie krzewów, nasadzenia, kostka brukowa i zakładanie ogrodów w Szczecinie i okolicach. Bezpłatna wycena. Zadzwoń: +48 578 816 720",
 };
 
 export default function RootLayout({

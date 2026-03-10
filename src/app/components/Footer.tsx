@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SectionDivider from "./SectionDivider";
 
 const services = [
   "Pielęgnacja trawników",
@@ -11,8 +12,10 @@ const services = [
 
 export default function Footer() {
   return (
-    <footer className="bg-sage-900 pt-16 pb-10 px-5">
-      <div className="max-w-5xl mx-auto">
+    <footer className="relative bg-sage-900 pt-16 pb-10 px-5">
+      <SectionDivider variant="contact-to-footer" />
+
+      <div className="max-w-5xl mx-auto relative z-[1]">
         {/* Top — CTA strip */}
         <div className="bg-sage-800 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 mb-14">
           <div>
@@ -24,13 +27,13 @@ export default function Footer() {
             </p>
           </div>
           <a
-            href="tel:+48123456789"
+            href="tel:+48578816720"
             className="btn-cta shrink-0 !bg-white !text-sage-800 hover:!bg-linen-100"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
-            +48 123 456 789
+            +48 578 816 720
           </a>
         </div>
 
@@ -76,13 +79,13 @@ export default function Footer() {
             </p>
             <div className="space-y-3 text-center md:text-left">
               <a
-                href="tel:+48123456789"
+                href="tel:+48578816720"
                 className="flex items-center gap-2 font-body text-sage-300 hover:text-white transition-colors text-sm justify-center md:justify-start"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-4 h-4 shrink-0">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                +48 123 456 789
+                +48 578 816 720
               </a>
               <a
                 href="mailto:piotr@zielonywarsztat.pl"

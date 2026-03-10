@@ -1,51 +1,34 @@
 import Image from "next/image";
+import SectionDivider from "./SectionDivider";
 
 export default function WhyGarden() {
   return (
-    <section className="py-24 md:py-32 px-5 bg-sage-100">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          {/* Left — real garden photo in organic shape */}
-          <div className="flex-shrink-0 w-72 h-72 lg:w-96 lg:h-96 relative">
-            <div
-              className="absolute inset-0 overflow-hidden"
-              style={{ borderRadius: "60% 40% 55% 45% / 50% 60% 40% 50%" }}
-            >
-              <Image
-                src="/photos/services/gardeninstalation.webp"
-                alt="Piękny ogród"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 288px, 384px"
-              />
-            </div>
-            <div
-              className="absolute -inset-2 border-2 border-sage-300/30"
-              style={{ borderRadius: "60% 40% 55% 45% / 50% 60% 40% 50%" }}
-            />
-          </div>
+    <section className="relative py-12 md:py-20 px-5 bg-forest">
+      <SectionDivider variant="services-to-whygarden" />
 
-          <div className="max-w-xl">
-            <p className="font-body text-sage-400 text-sm uppercase tracking-widest mb-3">
-              Dlaczego warto
-            </p>
+      <div className="max-w-6xl mx-auto relative z-[1]">
+        <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: "clamp(400px, 50vh, 600px)" }}>
+          <Image
+            src="/photos/services/gardeninstalation.webp"
+            alt="Piękny, zadbany ogród"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+
+          <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 lg:p-16">
             <h2
-              className="font-heading font-bold mb-8"
+              className="font-heading font-bold text-white mb-4 max-w-2xl"
               style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
             >
               Ogród to wizytówka Twojego domu
             </h2>
-            <p className="font-body text-brown-600 text-lg leading-relaxed mb-5">
-              Wracasz do domu po długim dniu. Otwierasz furtkę i zamiast chaosu
-              widzisz porządek, zieleń, kolory. To uczucie — że masz swoje miejsce
-              — jest bezcenne.
+            <p className="font-body text-white/85 text-lg leading-relaxed max-w-xl mb-4">
+              Podnosi wartość nieruchomości, robi wrażenie na gości i daje
+              przestrzeń do odpoczynku, jakiej nie zastąpi żaden salon.
             </p>
-            <p className="font-body text-brown-600 text-lg leading-relaxed mb-5">
-              Zadbany ogród to też realna wartość. Podnosi cenę nieruchomości,
-              robi wrażenie na gości i daje Ci przestrzeń do odpoczynku, jakiej
-              nie zastąpi żaden salon.
-            </p>
-            <p className="font-body text-brown-500 text-lg leading-relaxed italic">
+            <p className="font-body text-white/60 text-base italic">
               Nie musisz wiedzieć nic o ogrodnictwie. My to wiemy za Ciebie.
             </p>
           </div>
