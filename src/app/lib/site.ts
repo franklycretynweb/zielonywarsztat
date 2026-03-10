@@ -1,6 +1,6 @@
 export const CONTACT = {
-  phoneDisplay: "+48 123 456 789",
-  phoneE164: "48123456789",
+  phoneDisplay: "+48 578 816 720",
+  phoneE164: "48578816720",
   email: "piotr@zielonywarsztat.pl",
   hours: "Pon-Sob 7:00-18:00",
 };

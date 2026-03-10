@@ -21,30 +21,36 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="opinie" className="relative py-24 md:py-32 px-5 bg-forest">
+    <section id="opinie" className="relative py-24 md:py-32 px-5 bg-sage-50">
       <SectionDivider variant="meetpiotr-to-testimonials" />
 
       <div className="max-w-5xl mx-auto relative z-[1]">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <span className="section-kicker font-body text-sage-300">
+            <span className="section-kicker font-body text-sage-400">
               Opinie
             </span>
             <h2
-              className="font-heading font-bold text-linen-100"
+              className="font-heading font-bold"
               style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
             >
-              Co mówią klienci
+              Klienci wracają do nas i polecają nas dalej
             </h2>
+            <p className="font-body text-brown-500 max-w-2xl mx-auto mt-4 leading-relaxed">
+              Najczęściej słyszymy to samo: dobra robota, spokojna współpraca
+              i żadnych przykrych niespodzianek po drodze.
+            </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <ScrollReveal key={t.name} delay={i * 120}>
               <div
                 key={t.name}
-                className="bg-white rounded-2xl p-8 border border-sage-100/80 relative"
+                className={`bg-white rounded-2xl border border-sage-100/80 relative ${
+                  i === 0 ? "p-9 md:col-span-2 xl:col-span-1" : "p-8"
+                }`}
                 style={{ boxShadow: "var(--shadow-sm)" }}
               >
                 {/* Green accent bar */}
@@ -59,7 +65,7 @@ export default function Testimonials() {
                   ))}
                 </div>
 
-                <p className="font-body text-brown-600 leading-relaxed mb-6 text-[0.95rem]">
+                <p className={`font-body text-brown-600 leading-relaxed mb-6 ${i === 0 ? "text-base" : "text-[0.95rem]"}`}>
                   &ldquo;{t.text}&rdquo;
                 </p>
 

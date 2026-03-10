@@ -70,7 +70,6 @@
   --cta:        #4d8b5c;
   --cta-hover:  #3e7a4e;
   --cta-shadow: 140deg 30% 30%;
-  --cta-glow:   77, 139, 92;
   --green-dark: var(--sage-700);
   --green-mid: var(--sage-400);
   --green-light: var(--sage-200);
@@ -207,23 +206,6 @@
   }
 }
 
-/* === PULSE GLOW (floating CTA) === */
-@keyframes pulse-glow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(var(--cta-glow), 0.5);
-  }
-
-  50% {
-    box-shadow: 0 0 20px 6px rgba(var(--cta-glow), 0.25);
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2.5s ease-in-out infinite;
-}
-
 /* === CARD HOVER === */
 .card-hover {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
@@ -268,6 +250,38 @@
   box-shadow: 0 1px 4px hsl(var(--cta-shadow) / 0.2);
 }
 
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  padding: 0.875rem 1.5rem;
+  border-radius: 14px;
+  border: 1px solid var(--sage-200);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--brown-700);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background: white;
+  border-color: var(--sage-300);
+  transform: translateY(-1px);
+}
+
+.btn-cta:focus-visible,
+.btn-secondary:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgba(200, 214, 184, 0.95);
+  outline-offset: 3px;
+}
+
 /* === SECTION DIVIDER — multi-layer SVG waves === */
 .section-divider {
   pointer-events: none;
@@ -304,4 +318,23 @@
   height: 2px;
   background: var(--sage-300);
   border-radius: 2px;
+}
+
+.section-kicker-left::after {
+  left: 0;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

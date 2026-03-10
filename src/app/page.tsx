@@ -10,7 +10,7 @@ import FloatingCTA from "./components/FloatingCTA";
 
 export default function Home() {
   return (
-    <>
+    <main id="main-content">
       <Hero />
       <TrustBar />
       <Services />
@@ -20,6 +20,6 @@ export default function Home() {
       <Contact />
       <Footer />
       <FloatingCTA />
-    </>
+    </main>
   );
 }

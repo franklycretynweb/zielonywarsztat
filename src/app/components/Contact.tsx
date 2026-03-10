@@ -2,22 +2,23 @@
 
 import { useState, type FormEvent } from "react";
 import ScrollReveal from "./ScrollReveal";
+import SectionDivider from "./SectionDivider";
 
 const steps = [
   {
     num: "01",
-    title: "Zadzwoń lub napisz",
-    desc: "Opisz co potrzebujesz — doradzimy już przy pierwszej rozmowie.",
+    title: "Zadzwoń albo napisz",
+    desc: "Powiedz, czego potrzebujesz, a od razu podpowiemy najlepszy kierunek.",
   },
   {
     num: "02",
-    title: "Bezpłatna wizyta",
-    desc: "Przyjedziemy, ocenimy teren i przedstawimy wycenę. Bez zobowiązań.",
+    title: "Umawiamy bezpłatną wizytę",
+    desc: "Przyjeżdżamy, oglądamy ogród i przedstawiamy konkretną wycenę.",
   },
   {
     num: "03",
-    title: "Wykonujemy pracę",
-    desc: "Terminowo, ze sprzątaniem po sobie — Ty odbierasz gotowy ogród.",
+    title: "Robimy swoją robotę",
+    desc: "Pracujemy terminowo, zostawiamy porządek i oddajemy gotowy efekt.",
   },
 ];
 
@@ -42,7 +43,8 @@ export default function Contact() {
   }
 
   return (
-    <section id="kontakt" className="relative py-24 md:py-32 px-5 bg-sage-100">
+    <section id="kontakt" className="relative py-24 md:py-32 px-5 bg-linen-100">
+      <SectionDivider variant="faq-to-contact" />
       <div className="max-w-5xl mx-auto relative z-[1]">
         <ScrollReveal>
           <div className="text-center mb-16">
@@ -53,15 +55,19 @@ export default function Contact() {
               className="font-heading font-bold"
               style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
             >
-              Umów bezpłatną wizytę
+              Porozmawiajmy o Twoim ogrodzie
             </h2>
+            <p className="font-body text-brown-500 max-w-2xl mx-auto mt-4 leading-relaxed">
+              Możesz zadzwonić, napisać albo zostawić kontakt. Wybierz sposób,
+              który jest dla Ciebie najwygodniejszy.
+            </p>
           </div>
         </ScrollReveal>
 
         {/* How it works — 3 steps */}
         <ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 mb-16">
-            {steps.map((s, i) => (
+            {steps.map((s) => (
               <div key={s.num} className="text-center">
                 <span
                   className="font-heading font-bold text-sage-500 leading-none"
@@ -128,11 +134,11 @@ export default function Contact() {
             </div>
 
             <div className="bg-sage-50 rounded-xl p-5 border border-sage-100">
-              <p className="font-body text-sage-600 text-sm leading-relaxed">
-                Większość zapytań odpowiadamy <strong>w ciągu 2 godzin</strong>. Zadzwoń
-                lub zostaw wiadomość — odezwiemy się szybko.
-              </p>
-            </div>
+                <p className="font-body text-sage-600 text-sm leading-relaxed">
+                  Najszybciej będzie, jeśli zadzwonisz albo napiszesz na WhatsApp.
+                  Jeśli zostawisz wiadomość, odezwiemy się tak szybko, jak to możliwe.
+                </p>
+              </div>
           </div>
 
           {/* Right — form */}
@@ -158,10 +164,10 @@ export default function Contact() {
                 style={{ boxShadow: "var(--shadow-md)" }}
               >
                 <p className="font-heading font-semibold text-brown-700 text-lg mb-1">
-                  Otrzymaj bezpłatną wycenę
+                  Poproś o bezpłatną wycenę
                 </p>
                 <p className="font-body text-brown-400 text-sm mb-7">
-                  Wypełnienie zajmuje mniej niż 30 sekund
+                  Zostaw kontakt i krótki opis prac, które chcesz zlecić
                 </p>
 
                 <div className="mb-8">
@@ -221,7 +227,7 @@ export default function Contact() {
                 </div>
 
                 <button type="submit" className="btn-cta w-full !text-lg !py-4">
-                  Wyślij — oddzwonimy szybko
+                  Wyślij prośbę o kontakt
                 </button>
 
                 <p className="text-center font-body text-brown-300 text-xs mt-4 flex items-center justify-center gap-1.5">
@@ -239,7 +245,7 @@ export default function Contact() {
         {/* Service area */}
         <ScrollReveal>
           <div className="mt-16 pt-10 border-t border-sage-300/60 text-center">
-            <p className="font-heading font-semibold text-brown-700 text-base uppercase tracking-widest mb-5">Gdzie jesteśmy?</p>
+            <p className="font-heading font-semibold text-brown-700 text-base uppercase tracking-widest mb-5">Gdzie pracujemy?</p>
             <div className="flex flex-wrap justify-center gap-2">
               {towns.map((town) => (
                 <span

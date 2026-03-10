@@ -27,21 +27,25 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="relative py-24 md:py-32 px-5 bg-sage-100">
+    <section id="faq" className="relative py-24 md:py-32 px-5 bg-sage-800">
       <SectionDivider variant="testimonials-to-faq" />
 
       <div className="max-w-3xl mx-auto relative z-[1]">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <span className="section-kicker font-body text-sage-400">
+            <span className="section-kicker font-body text-sage-300">
               FAQ
             </span>
             <h2
-              className="font-heading font-bold"
+              className="font-heading font-bold text-linen-100"
               style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
             >
-              Często zadawane pytania
+              Pytania, które słyszymy najczęściej
             </h2>
+            <p className="font-body text-white/55 max-w-2xl mx-auto mt-4 leading-relaxed">
+              Krótko i konkretnie. Jeśli nie widzisz tu swojej sytuacji,
+              po prostu zadzwoń i zapytaj.
+            </p>
           </div>
         </ScrollReveal>
 
@@ -49,18 +53,18 @@ export default function FAQ() {
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl border border-sage-100/80 overflow-hidden"
+              className="bg-sage-700/60 rounded-2xl border border-white/10 overflow-hidden"
               style={{ boxShadow: open === i ? "var(--shadow-md)" : "var(--shadow-sm)" }}
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between px-7 py-6 text-left cursor-pointer"
               >
-                <span className="font-heading font-semibold text-brown-700 text-[1.05rem] leading-snug pr-4">
+                <span className="font-heading font-semibold text-linen-100 text-[1.05rem] leading-snug pr-4">
                   {faq.q}
                 </span>
                 <span
-                  className="flex-shrink-0 w-9 h-9 rounded-full bg-sage-50 border border-sage-100 flex items-center justify-center text-sage-500 transition-transform duration-200"
+                  className="flex-shrink-0 w-9 h-9 rounded-full bg-sage-600/50 border border-sage-600 flex items-center justify-center text-sage-300 transition-transform duration-200"
                   style={{
                     transform: open === i ? "rotate(180deg)" : "rotate(0deg)",
                   }}
@@ -77,7 +81,7 @@ export default function FAQ() {
                   opacity: open === i ? 1 : 0,
                 }}
               >
-                <p className="px-7 pb-6 font-body text-brown-500 leading-relaxed">
+                <p className="px-7 pb-6 font-body text-white/60 leading-relaxed">
                   {faq.a}
                 </p>
               </div>
@@ -86,9 +90,9 @@ export default function FAQ() {
         </div>
 
         <div className="text-center mt-12">
-          <p className="font-body text-brown-400">
+          <p className="font-body text-white/40">
             Masz inne pytanie?{" "}
-            <a href="tel:+48578816720" className="text-terra-500 hover:text-terra-600 font-medium underline underline-offset-2 transition-colors">
+            <a href="tel:+48578816720" className="text-sage-300 hover:text-sage-200 font-medium underline underline-offset-2 transition-colors">
               Zadzwoń — chętnie odpowiemy
             </a>
           </p>

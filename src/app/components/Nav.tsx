@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { CONTACT, LINKS } from "../lib/site";
 
 const links = [
   { label: "Usługi", href: "#uslugi" },
   { label: "O mnie", href: "#o-mnie" },
-  { label: "Realizacje", href: "#opinie" },
+  { label: "Opinie", href: "#opinie" },
   { label: "FAQ", href: "#faq" },
   { label: "Kontakt", href: "#kontakt" },
 ];
@@ -36,14 +37,15 @@ export default function Nav() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 px-5 pt-4">
         <div
-          className={`max-w-6xl mx-auto bg-white rounded-full px-3 h-14 flex items-center justify-between transition-shadow duration-300 ${
-            scrolled ? "shadow-xl" : "shadow-md"
+          className={`max-w-6xl mx-auto rounded-full px-3 h-14 flex items-center justify-between border transition-all duration-300 ${
+            scrolled
+              ? "bg-white/96 border-white/70 shadow-xl backdrop-blur-xl"
+              : "bg-white/10 border-white/15 shadow-[0_8px_30px_rgba(16,24,10,0.12)] backdrop-blur-md"
           }`}
         >
-          {/* Logo */}
           <a href="#" className="flex-shrink-0 pl-2">
             <Image
-              src="/logo.webp"
+              src="/photos/logo/logo.webp"
               height={48}
               width={160}
               alt="Zielony Warsztat Piotra"
@@ -51,51 +53,67 @@ export default function Nav() {
             />
           </a>
 
-          {/* Desktop nav links */}
           <div className="hidden lg:flex items-center gap-7">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="font-body text-sm font-medium text-brown-600 hover:text-terra-500 transition-colors"
+                className={`font-body text-sm font-medium transition-colors ${
+                  scrolled
+                    ? "text-brown-600 hover:text-terra-500"
+                    : "text-white/80 hover:text-white"
+                }`}
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          {/* Desktop phone + CTA */}
           <div className="hidden lg:flex items-center gap-4 pr-1">
-            <span className="font-body text-sm text-brown-400 tracking-wide">
-              +48 578 816 720
-            </span>
             <a
-              href="https://wa.me/48578816720"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[var(--cta)] hover:bg-[var(--cta-hover)] text-white font-body font-semibold text-sm px-5 py-2.5 rounded-full transition-colors"
+              href={LINKS.tel}
+              className={`font-body text-sm tracking-wide transition-colors ${
+                scrolled
+                  ? "text-brown-500 hover:text-brown-700"
+                  : "text-white/70 hover:text-white"
+              }`}
             >
-              WhatsApp
+              {CONTACT.phoneDisplay}
+            </a>
+            <a
+              href="#kontakt"
+              className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                scrolled
+                  ? "bg-sage-50 text-brown-700 hover:bg-sage-100"
+                  : "bg-white/14 text-white hover:bg-white/20"
+              }`}
+            >
+              Umów wycenę
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-3.5 h-3.5">
                 <path d="M7 17L17 7M17 7H7M17 7v10" />
               </svg>
             </a>
           </div>
 
-          {/* Mobile: WhatsApp + hamburger */}
           <div className="flex lg:hidden items-center gap-2 pr-1">
             <a
-              href="https://wa.me/48578816720"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-[var(--cta)] text-white font-body font-semibold text-sm px-4 py-2 rounded-full"
+              href={LINKS.tel}
+              className={`inline-flex min-h-11 items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                scrolled
+                  ? "bg-sage-50 text-brown-700"
+                  : "bg-white/14 text-white"
+              }`}
             >
-              WhatsApp
+              Zadzwoń
             </a>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="w-9 h-9 flex flex-col items-center justify-center gap-1.5 rounded-full text-brown-700"
+              className={`flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full transition-colors ${
+                scrolled ? "text-brown-700 hover:bg-sage-50" : "text-white hover:bg-white/10"
+              }`}
               aria-label={menuOpen ? "Zamknij menu" : "Otwórz menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
             >
               <span className={`block w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${menuOpen ? "translate-y-[8px] rotate-45" : ""}`} />
               <span className={`block w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
@@ -105,8 +123,8 @@ export default function Nav() {
         </div>
       </nav>
 
-      {/* Mobile menu overlay — outside <nav> to avoid fixed positioning containment issues */}
       <div
+        id="mobile-menu"
         className={`fixed inset-0 bg-linen-50 z-40 flex flex-col lg:hidden transition-opacity duration-300 ${
           menuOpen
             ? "opacity-100 pointer-events-auto"
@@ -127,19 +145,17 @@ export default function Nav() {
 
           <div className="mt-6 flex flex-col items-center gap-4">
             <a
-              href="tel:+48578816720"
+              href={LINKS.tel}
               className="font-heading text-xl text-terra-500 font-bold"
             >
-              +48 578 816 720
+              {CONTACT.phoneDisplay}
             </a>
             <a
-              href="https://wa.me/48578816720"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#kontakt"
               onClick={() => setMenuOpen(false)}
               className="btn-cta !text-lg !px-8"
             >
-              WhatsApp
+              Umów bezpłatną wycenę
             </a>
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
+import SectionDivider from "./SectionDivider";
 
 
 const reasons = [
@@ -65,16 +66,23 @@ const reasons = [
   },
 ];
 
+const proofFacts = [
+  "Rozmawiasz z Piotrem od pierwszego telefonu do końca prac",
+  "Na posesję przyjeżdża ta sama ekipa, którą poznajesz na wycenie",
+  "Pracujemy własnym sprzętem i zostawiamy po sobie porządek",
+];
+
 export default function MeetPiotr() {
   return (
-    <section id="o-mnie" className="relative py-24 md:py-32 px-5 bg-sage-100">
+    <section id="o-mnie" className="relative py-24 md:py-32 px-5 bg-sage-800">
+      <SectionDivider variant="services-to-meetpiotr" />
 
       <div className="max-w-5xl mx-auto relative z-[1]">
         <ScrollReveal>
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16 mb-16">
             {/* Photo — real work photo in circular frame */}
             <div className="flex-shrink-0 relative">
-              <div className="w-48 h-48 lg:w-56 lg:h-56 rounded-full border-4 border-sage-200 overflow-hidden"
+              <div className="w-48 h-48 lg:w-56 lg:h-56 rounded-full border-4 border-sage-600/60 overflow-hidden"
                 style={{ boxShadow: "var(--shadow-md)" }}>
                 <Image
                   src="/photos/services/transplanting.webp"
@@ -91,31 +99,39 @@ export default function MeetPiotr() {
 
             {/* Story */}
             <div className="max-w-xl lg:pt-4">
-              <span className="section-kicker font-body text-sage-400">
-                O mnie
+              <span className="section-kicker section-kicker-left font-body text-sage-300">
+                Właściciel firmy
               </span>
               <h2
-                className="font-heading font-bold mb-8"
+                className="font-heading font-bold mb-8 text-linen-100"
                 style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
               >
-                Poznaj Piotra
+                Piotr prowadzi każdą realizację osobiście
               </h2>
-              <p className="font-body text-brown-600 text-lg leading-relaxed mb-5">
-                Najbardziej lubię pracę, w której na koniec dnia widać, że coś
-                naprawdę się zmieniło. Ogród daje właśnie takie poczucie — z czasem
-                staje się piękniejszy i bardziej uporządkowany.
+              <p className="font-body text-white/65 text-lg leading-relaxed mb-4">
+                Lubię pracę, po której od razu widać efekt. W ogrodzie to czuć
+                najmocniej: porządek, świeżość i przestrzeń, z której znowu
+                chce się korzystać.
               </p>
-              <p className="font-body text-brown-600 text-lg leading-relaxed mb-5">
-                W swojej pracy stawiam na dokładność, porządek i szacunek do
-                miejsca, w którym pracuję.
+              <p className="font-body text-white/55 text-lg leading-relaxed italic mb-8">
+                Każdy ogród traktuję jak swoją wizytówkę, dlatego liczy się dla
+                mnie nie tylko sam efekt, ale też dokładność, dobra komunikacja
+                i szacunek do miejsca, w którym pracuję.
               </p>
-              <p className="font-body text-brown-500 text-lg leading-relaxed italic mb-8">
-                Każdy ogród traktuję jak swoją wizytówkę. Dlatego dbam o to, żeby
-                efekt cieszył właściciela przez długi czas.
-              </p>
-              <div className="mt-8 pt-6 border-t border-sage-200/50">
-                <p className="font-[var(--font-caveat),cursive] text-5xl text-brown-800 opacity-90 tracking-wider">Piotr</p>
-                <p className="font-body text-sm text-sage-500 mt-2 uppercase tracking-widest">Założyciel & Główny Wykonawca</p>
+              <ul className="space-y-3 mb-8">
+                {proofFacts.map((fact) => (
+                  <li
+                    key={fact}
+                    className="flex items-start gap-3 font-body text-white/65 leading-relaxed"
+                  >
+                    <span className="mt-2 h-2 w-2 rounded-full bg-sage-400 shrink-0" />
+                    <span>{fact}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 pt-6 border-t border-sage-600/50">
+                <p className="font-[var(--font-caveat),cursive] text-5xl text-linen-100 opacity-90 tracking-wider">Piotr</p>
+                <p className="font-body text-sm text-sage-300 mt-2 uppercase tracking-widest">Założyciel & Główny Wykonawca</p>
               </div>
             </div>
           </div>
@@ -124,25 +140,30 @@ export default function MeetPiotr() {
         {/* Differentiators */}
         <ScrollReveal>
           <div className="text-center mb-12">
-            <span className="section-kicker font-body text-sage-400">Dlaczego my</span>
+            <span className="section-kicker font-body text-sage-300">Dlaczego my</span>
             <h2
-              className="font-heading font-bold"
+              className="font-heading font-bold text-linen-100"
               style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
             >
-              Kilka rzeczy, których inni nie obiecują
+              Powody, dla których klienci polecają nas dalej
             </h2>
           </div>
         </ScrollReveal>
 
         <ScrollReveal>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-sage-200/70 rounded-2xl overflow-hidden border border-sage-200/70">
-            {reasons.map((r) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            {reasons.map((r, index) => (
               <div
                 key={r.title}
-                className="flex flex-col items-center text-center gap-3 px-4 py-7 bg-sage-50 hover:bg-white transition-colors duration-200"
+                className="rounded-[1.5rem] border border-white/10 bg-sage-700/50 px-5 py-6 transition-colors duration-200 hover:bg-sage-700"
               >
-                <div className="text-sage-500">{r.icon}</div>
-                <p className="font-heading font-semibold text-sm text-brown-700 leading-snug">{r.title}</p>
+                <div className="mb-4 text-sage-300">{r.icon}</div>
+                <p className="font-heading font-semibold text-lg text-linen-100 leading-snug mb-2">
+                  {r.title}
+                </p>
+                <p className="font-body text-white/60 leading-relaxed text-sm">
+                  {r.desc}
+                </p>
               </div>
             ))}
           </div>

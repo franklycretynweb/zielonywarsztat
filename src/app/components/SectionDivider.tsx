@@ -52,11 +52,11 @@ const VARIANTS: Record<string, DividerColors> = {
         layer2: "#d7e1cc",
         layer3: "#e6ece0",
     },
-    // Testimonials (forest #2f3c23) → FAQ (sage-100)
+    // Testimonials (sage-50 #f4f7f0) → FAQ (sage-800 #2d351f)
     "testimonials-to-faq": {
-        layer1: "#485536",
-        layer2: "#3a4429",
-        layer3: "#2f3c23",
+        layer1: "#c8d6b8",
+        layer2: "#dce6d2",
+        layer3: "#f4f7f0",
     },
     // FAQ (sage-100 #e6ece0) → ServiceArea (forest)
     "faq-to-servicearea": {
@@ -70,11 +70,11 @@ const VARIANTS: Record<string, DividerColors> = {
         layer2: "#3a4429",
         layer3: "#2f3c23",
     },
-    // Contact (sage-100 #e6ece0) → Footer (sage-900 #1e2415)
+    // Contact (linen-100 #faf8f4) → Footer (sage-900 #1e2415)
     "contact-to-footer": {
-        layer1: "#c8d6b8",
-        layer2: "#d7e1cc",
-        layer3: "#e6ece0",
+        layer1: "#d8d0c0",
+        layer2: "#ede5d8",
+        layer3: "#faf8f4",
     },
     // TrustBar (sage-800 #2d351f) → Services (sage-100 #e6ece0)
     "trustbar-to-services": {
@@ -82,11 +82,23 @@ const VARIANTS: Record<string, DividerColors> = {
         layer2: "#3a4429",
         layer3: "#2d351f",
     },
-    // MeetPiotr (sage-100 #e6ece0) → Testimonials (forest #2f3c23)
+    // MeetPiotr (sage-800 #2d351f) → Testimonials (sage-50 #f4f7f0)
     "meetpiotr-to-testimonials": {
+        layer1: "#485536",
+        layer2: "#3a4429",
+        layer3: "#2d351f",
+    },
+    // Services (sage-50 #f4f7f0) → MeetPiotr (sage-800 #2d351f)
+    "services-to-meetpiotr": {
         layer1: "#c8d6b8",
-        layer2: "#d7e1cc",
-        layer3: "#e6ece0",
+        layer2: "#dce6d2",
+        layer3: "#f4f7f0",
+    },
+    // FAQ (sage-800 #2d351f) → Contact (linen-100 #faf8f4)
+    "faq-to-contact": {
+        layer1: "#485536",
+        layer2: "#3a4429",
+        layer3: "#2d351f",
     },
 };
 

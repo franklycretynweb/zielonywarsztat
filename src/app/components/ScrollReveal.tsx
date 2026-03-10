@@ -1,52 +1,28 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { motion } from "framer-motion";
+import { type ReactNode } from "react";
 
 interface ScrollRevealProps {
-    children: ReactNode;
-    /** Delay in ms before animation starts after entering viewport */
-    delay?: number;
-    className?: string;
+  children: ReactNode;
+  delay?: number;
+  className?: string;
 }
 
-export default function ScrollReveal({
-    children,
-    delay = 0,
-    className = "",
-}: ScrollRevealProps) {
-    const ref = useRef<HTMLDivElement>(null);
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const el = ref.current;
-        if (!el) return;
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.unobserve(el); // once visible, stay visible
-                }
-            },
-            { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-        );
-
-        observer.observe(el);
-        return () => observer.disconnect();
-    }, []);
-
-    return (
-        <div
-            ref={ref}
-            className={className}
-            style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateY(0)" : "translateY(24px)",
-                transition: `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${delay}ms`,
-                willChange: isVisible ? "auto" : "opacity, transform",
-            }}
-        >
-            {children}
-        </div>
-    );
+export default function ScrollReveal({ children, delay = 0, className = "" }: ScrollRevealProps) {
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+        delay: delay / 1000,
+      }}
+    >
+      {children}
+    </motion.div>
+  );
 }
