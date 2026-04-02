@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionDivider from "./SectionDivider";
-import ScrollReveal from "./ScrollReveal";
+import ScrollReveal, { StaggerReveal, StaggerChild } from "./ScrollReveal";
 
 const faqs = [
   {
@@ -27,75 +28,92 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="relative py-24 md:py-32 px-5 bg-sage-800">
+    <section id="faq" className="relative py-24 md:py-32 px-6 bg-sage-800">
       <SectionDivider variant="testimonials-to-faq" />
 
-      <div className="max-w-3xl mx-auto relative z-[1]">
-        <ScrollReveal>
-          <div className="text-center mb-16">
-            <span className="section-kicker font-body text-sage-300">
-              FAQ
-            </span>
-            <h2
-              className="font-heading font-bold text-linen-100"
-              style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
-            >
-              Pytania, które słyszymy najczęściej
-            </h2>
-            <p className="font-body text-white/55 max-w-2xl mx-auto mt-4 leading-relaxed">
-              Krótko i konkretnie. Jeśli nie widzisz tu swojej sytuacji,
-              po prostu zadzwoń i zapytaj.
-            </p>
-          </div>
-        </ScrollReveal>
-
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="bg-sage-700/60 rounded-2xl border border-white/10 overflow-hidden"
-              style={{ boxShadow: open === i ? "var(--shadow-md)" : "var(--shadow-sm)" }}
-            >
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between px-7 py-6 text-left cursor-pointer"
-              >
-                <span className="font-heading font-semibold text-linen-100 text-[1.05rem] leading-snug pr-4">
-                  {faq.q}
-                </span>
-                <span
-                  className="flex-shrink-0 w-9 h-9 rounded-full bg-sage-600/50 border border-sage-600 flex items-center justify-center text-sage-300 transition-transform duration-200"
-                  style={{
-                    transform: open === i ? "rotate(180deg)" : "rotate(0deg)",
-                  }}
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4">
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </span>
-              </button>
-              <div
-                className="overflow-hidden transition-all duration-300"
-                style={{
-                  maxHeight: open === i ? "300px" : "0",
-                  opacity: open === i ? 1 : 0,
-                }}
-              >
-                <p className="px-7 pb-6 font-body text-white/60 leading-relaxed">
-                  {faq.a}
-                </p>
-              </div>
+      <div className="max-w-6xl mx-auto relative z-[1]">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+          
+          {/* LEWA KOLUMNA: STICKY HEADER */}
+          <div className="lg:w-1/3 shrink-0">
+            <div className="sticky top-32">
+              <ScrollReveal variant="right" blur>
+                <div className="mb-8">
+                  <span className="section-kicker section-kicker-left font-body text-sage-300">
+                    FAQ
+                  </span>
+                  <h2
+                    className="font-heading font-bold text-linen-100 mt-4 leading-[1.1]"
+                    style={{ fontSize: "clamp(2rem, 1.5rem + 2.5vw, 3.5rem)" }}
+                  >
+                    Pytania, które słyszymy najczęściej
+                  </h2>
+                  <p className="font-body text-white/55 mt-6 leading-relaxed max-w-sm">
+                    Krótko i konkretnie. Jeśli nie widzisz tu swojej sytuacji, 
+                    <a href="tel:+48578816720" className="text-sage-300 hover:text-sage-200 ml-1 font-medium underline underline-offset-4 transition-colors">
+                      zadzwoń — chętnie odpowiemy.
+                    </a>
+                  </p>
+                </div>
+              </ScrollReveal>
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div className="text-center mt-12">
-          <p className="font-body text-white/40">
-            Masz inne pytanie?{" "}
-            <a href="tel:+48578816720" className="text-sage-300 hover:text-sage-200 font-medium underline underline-offset-2 transition-colors">
-              Zadzwoń — chętnie odpowiemy
-            </a>
-          </p>
+          {/* PRAWA KOLUMNA: AKORDEON MINIMALIST (LINIE) */}
+          <div className="lg:w-2/3">
+            <StaggerReveal className="flex flex-col border-t border-white/10">
+              {faqs.map((faq, i) => {
+                const isOpen = open === i;
+                
+                return (
+                  <StaggerChild 
+                    key={i} 
+                    variant="left" 
+                    blur 
+                    className="border-b border-white/10"
+                  >
+                    <button
+                      onClick={() => setOpen(isOpen ? null : i)}
+                      className="w-full flex items-center justify-between py-8 text-left cursor-pointer group"
+                    >
+                      <span className={`font-heading font-semibold text-[1.15rem] leading-snug pr-8 transition-colors ${isOpen ? "text-terra-400" : "text-linen-100 group-hover:text-terra-400"}`}>
+                        {faq.q}
+                      </span>
+                      
+                      {/* Minimalist Plus/Minus Icon */}
+                      <span className="flex-shrink-0 relative w-6 h-6 flex items-center justify-center text-sage-300">
+                        {/* Horyzontalna kreska (zawsze widoczna) */}
+                        <span className={`absolute w-full h-[2px] bg-current transition-colors duration-300 ${isOpen ? "bg-terra-400" : "group-hover:bg-terra-400"}`} />
+                        {/* Wertykalna kreska (znika przy otwarciu) */}
+                        <span 
+                          className={`absolute w-[2px] h-full bg-current transition-all duration-300 ${
+                            isOpen ? "rotate-90 opacity-0 bg-terra-400" : "rotate-0 opacity-100 group-hover:bg-terra-400"
+                          }`} 
+                        />
+                      </span>
+                    </button>
+                    
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <p className="pb-8 font-body text-white/60 leading-relaxed text-[1.05rem] max-w-2xl">
+                            {faq.a}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </StaggerChild>
+                );
+              })}
+            </StaggerReveal>
+          </div>
+
         </div>
       </div>
     </section>

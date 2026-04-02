@@ -1,124 +1,160 @@
 import Image from "next/image";
-import ScrollReveal from "./ScrollReveal";
-import SectionDivider from "./SectionDivider";
+import ScrollReveal, { StaggerReveal, StaggerChild } from "./ScrollReveal";
 import { LINKS } from "../lib/site";
+
+import SectionDivider from "./SectionDivider";
 
 const services = [
   {
-    name: "Pielęgnacja trawników",
-    desc: "Koszenie, nawożenie i wertykulacja, dzięki którym trawnik znowu wygląda równo i zdrowo.",
-    image: "/photos/services/lawncare.webp",
+    name: "Projektowanie i zakładanie ogrodów",
+    desc: "Od pustej działki do gotowego ogrodu z trawnikiem, rabatami i sensownym układem przestrzeni.",
+    image: "/photos/services/gardendesign.webp",
+    colClass: "md:col-span-2 lg:col-span-2",
   },
   {
     name: "Przycinanie krzewów i drzewek",
     desc: "Formowanie żywopłotów i cięcie roślin tak, żeby ogród był zadbany przez cały sezon.",
     image: "/photos/services/pruning.webp",
+    colClass: "col-span-1",
+  },
+  {
+    name: "Pielęgnacja trawników",
+    desc: "Koszenie, nawożenie i wertykulacja, dzięki którym trawnik znowu wygląda równo i zdrowo.",
+    image: "/photos/services/lawncare.webp",
+    colClass: "md:col-span-2 lg:col-span-2",
   },
   {
     name: "Wycinki kompleksowe",
     desc: "Usuwamy drzewa i krzewy, wywozimy odpady i zostawiamy po sobie czysty teren.",
     image: "/photos/services/treeremoval.webp",
-  },
-  {
-    name: "Nasadzanie i przesadzanie",
-    desc: "Dobieramy rośliny do gleby, światła i stylu ogrodu, żeby miały szansę naprawdę się przyjąć.",
-    image: "/photos/services/planting.webp",
-  },
-  {
-    name: "Projektowanie i zakładanie ogrodów",
-    desc: "Od pustej działki do gotowego ogrodu z trawnikiem, rabatami i sensownym układem przestrzeni.",
-    image: "/photos/services/gardendesign.webp",
+    colClass: "col-span-1",
   },
   {
     name: "Układanie kostki brukowej",
     desc: "Podjazdy, tarasy i ścieżki wykonane równo i na solidnej podbudowie.",
     image: "/photos/services/paving.webp",
+    colClass: "md:col-span-2 lg:col-span-2",
+  },
+  {
+    name: "Nasadzanie i przesadzanie",
+    desc: "Dobieramy rośliny do gleby, światła i stylu ogrodu, żeby miały szansę naprawdę się przyjąć.",
+    image: "/photos/services/planting.webp",
+    colClass: "col-span-1",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="uslugi" className="relative py-28 md:py-40 px-5 bg-sage-50">
+    <section id="uslugi" className="relative bg-linen-50 px-6 py-20 md:py-28">
       <SectionDivider variant="trustbar-to-services" />
-      <div className="max-w-6xl mx-auto relative z-[1]">
-        <ScrollReveal>
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-end mb-16 md:mb-20">
-            <div className="max-w-2xl">
-              <span className="section-kicker section-kicker-left font-body text-sage-400 text-left">
-                Usługi ogrodnicze
-              </span>
-              <h2
-                className="font-heading font-bold text-left"
-                style={{ fontSize: "clamp(2rem, 1.35rem + 2.2vw, 3.15rem)" }}
-              >
-                Zajmiemy się ogrodem od porządków po pełną realizację
-              </h2>
-            </div>
-            <p className="font-body text-brown-600 text-base md:text-lg leading-relaxed max-w-xl lg:ml-auto">
+      <div className="mx-auto max-w-6xl relative z-10">
+        {/* Header */}
+        <div className="mb-16 flex flex-col items-center text-center md:mb-24">
+          <ScrollReveal>
+            <h2
+              className="mx-auto max-w-[20ch] font-heading font-bold leading-tight text-foreground text-balance"
+              style={{ fontSize: "clamp(2.5rem, 2rem + 3.5vw, 4.5rem)" }}
+            >
+              Zajmiemy się ogrodem od porządków po pełną realizację.
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-foreground/75 md:mt-8 md:text-xl text-balance">
               Robimy pojedyncze prace i większe realizacje. Jeśli nie wiesz
               jeszcze, czego dokładnie potrzebujesz, podczas bezpłatnej wizyty
               podpowiemy najrozsądniejszy zakres prac.
             </p>
-          </div>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6">
-          {services.map((service, index) => (
-            <ScrollReveal key={service.name} delay={index * 90}>
-              <article
-                className="card-hover overflow-hidden rounded-[1.75rem] border border-sage-200/80 bg-white"
-                style={{ boxShadow: "var(--shadow-md)" }}
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="p-6 md:p-7">
-                  <h3 className="font-heading text-2xl font-bold text-brown-700 mb-3 leading-tight">
-                    {service.name}
-                  </h3>
-                  <p className="font-body text-brown-500 leading-relaxed text-base">
-                    {service.desc}
-                  </p>
-                </div>
-              </article>
-            </ScrollReveal>
-          ))}
+          </ScrollReveal>
         </div>
 
-        <ScrollReveal>
-          <div
-            className="mt-14 rounded-[1.75rem] border border-sage-200/80 bg-linen-50 px-6 py-8 md:px-10 md:py-10"
-            style={{ boxShadow: "var(--shadow-sm)" }}
-          >
-            <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-2xl">
-                <p
-                  className="font-heading font-bold text-brown-800 mb-2"
-                  style={{ fontSize: "clamp(1.35rem, 1.05rem + 0.95vw, 1.8rem)" }}
-                >
-                  Nie wiesz jeszcze, od czego zacząć?
-                </p>
-                <p className="font-body text-brown-600 text-base leading-relaxed">
-                  Wyślij zdjęcie ogrodu na WhatsApp. Napisz, co Ci przeszkadza
-                  albo co chcesz osiągnąć, a podpowiemy Ci najlepszy pierwszy krok.
-                </p>
-              </div>
+        {/* Bento Grid */}
+        <StaggerReveal staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-6 md:gap-8">
+          {services.map((service, index) => {
+            const isBig = service.colClass.includes("col-span-2");
 
+            return (
+              <StaggerChild key={service.name} className={service.colClass} variant="up" blur>
+                <article
+                  className="card-hover group relative flex h-full flex-col overflow-hidden rounded-2xl border border-foreground/8 bg-white"
+                >
+                  {/* Image Header */}
+                  <div className="relative h-56 w-full shrink-0 overflow-hidden bg-sand-100 md:h-64 lg:h-72">
+                    <Image
+                      src={service.image}
+                      alt={service.name}
+                      fill
+                      className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                      sizes={isBig ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
+                    />
+
+                    {/* Number Overlay */}
+                    <span
+                      className="absolute left-6 top-6 font-heading font-bold leading-none text-white/80 drop-shadow-md mix-blend-overlay"
+                      style={{ fontSize: "clamp(3rem, 4vw, 4.5rem)" }}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="flex flex-1 flex-col justify-between p-6 md:p-8">
+                    <div>
+                      <h3 className="mb-3 font-heading text-xl font-bold text-foreground md:text-2xl text-balance">
+                        {service.name}
+                      </h3>
+                      <p className="text-base text-foreground/80 leading-relaxed text-balance">
+                        {service.desc}
+                      </p>
+                    </div>
+
+                    {/* CTA Footer */}
+                    <div className="mt-8 flex flex-wrap items-center justify-between gap-4 pt-2">
+                      {isBig && (
+                        <a
+                          href={LINKS.tel}
+                          className="btn-secondary min-h-0 whitespace-nowrap px-5 py-2.5 text-sm"
+                        >
+                          Umów wycenę
+                        </a>
+                      )}
+                      <a
+                        href="#"
+                        className={`group/link inline-flex items-center gap-2 text-sm font-bold text-accent transition-colors hover:text-accent-hover ${!isBig ? "w-full justify-end" : ""
+                          }`}
+                      >
+                        Szczegóły usługi
+                        <span className="transition-transform group-hover/link:translate-x-1">
+                          →
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </StaggerChild>
+            );
+          })}
+        </StaggerReveal>
+
+        {/* Minimalist CTA Bottom */}
+        <ScrollReveal>
+          <div className="mt-20 overflow-hidden rounded-3xl bg-sage-50 px-8 py-16 md:mt-28 md:px-16 md:py-24 relative">
+            <div className="absolute top-0 right-0 p-8 text-[400px] leading-none text-sage-100/50 font-heading opacity-50 select-none pointer-events-none transform translate-x-1/4 -translate-y-1/4">
+              ?
+            </div>
+            <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
+              <h3 className="mb-6 font-heading text-3xl font-bold text-foreground max-w-xl text-balance md:text-4xl lg:text-5xl">
+                Nie wiesz jeszcze, od czego zacząć?
+              </h3>
+              <p className="mb-10 text-lg leading-relaxed text-foreground/75 md:text-xl text-balance">
+                Wyślij zdjęcie ogrodu na WhatsApp. Napisz, co Ci przeszkadza
+                albo co chcesz osiągnąć, a podpowiemy Ci najlepszy pierwszy krok.
+              </p>
               <a
                 href={LINKS.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary shrink-0"
+                className="btn-cta"
               >
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
                 Wyślij zdjęcie ogrodu
               </a>
             </div>

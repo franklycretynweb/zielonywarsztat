@@ -1,23 +1,26 @@
 import type { Metadata } from "next";
-import { Lora, DM_Sans, Caveat } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Nav from "./components/Nav";
 
-const lora = Lora({
-  variable: "--font-lora",
-  subsets: ["latin", "latin-ext"],
+const cabinetGrotesk = localFont({
+  src: [
+    { path: "./fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf", weight: "400", style: "normal" },
+    { path: "./fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf", weight: "500", style: "normal" },
+    { path: "./fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf", weight: "700", style: "normal" },
+    { path: "./fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf", weight: "800", style: "normal" },
+  ],
+  variable: "--font-cabinet",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-});
-
-const caveat = Caveat({
-  variable: "--font-caveat",
-  subsets: ["latin", "latin-ext"],
+const satoshi = localFont({
+  src: [
+    { path: "./fonts/Satoshi/Satoshi-Regular.otf", weight: "400", style: "normal" },
+    { path: "./fonts/Satoshi/Satoshi-Medium.otf", weight: "500", style: "normal" },
+    { path: "./fonts/Satoshi/Satoshi-Bold.otf", weight: "700", style: "normal" },
+  ],
+  variable: "--font-satoshi",
   display: "swap",
 });
 
@@ -34,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body className={`${lora.variable} ${dmSans.variable} ${caveat.variable} antialiased`}>
+      <body className={`${cabinetGrotesk.variable} ${satoshi.variable} antialiased`}>
         <Nav />
         {children}
       </body>

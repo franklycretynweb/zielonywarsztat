@@ -151,8 +151,8 @@
   --color-linen-300: var(--linen-300);
   --color-linen-400: var(--linen-400);
 
-  --font-heading: var(--font-lora);
-  --font-body: var(--font-dm-sans);
+  --font-heading: var(--font-cabinet);
+  --font-body: var(--font-satoshi);
 }
 
 /* === BASE STYLES === */
@@ -167,7 +167,7 @@
   body {
     background: var(--background);
     color: var(--foreground);
-    font-family: var(--font-body), system-ui, sans-serif;
+    font-family: var(--font-satoshi), sans-serif;
     font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.2rem);
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
@@ -179,7 +179,7 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-heading), Georgia, serif;
+    font-family: var(--font-heading), sans-serif;
     color: var(--heading);
     line-height: 1.15;
     text-wrap: balance;
@@ -222,32 +222,30 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  min-height: 52px;
+  gap: 0.65rem;
   padding: 0.875rem 2rem;
-  background: var(--cta);
+  background: #e0a580;
   color: white;
-  font-family: var(--font-heading), Georgia, serif;
-  font-size: 1.125rem;
-  font-weight: 600;
-  border-radius: 14px;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 999px;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.15s ease,
-    box-shadow 0.2s ease;
-  cursor: pointer;
   border: none;
-  box-shadow: 0 2px 8px hsl(var(--cta-shadow) / 0.2);
+  cursor: pointer;
+  transform: translateY(0);
+  box-shadow: 0 6px 0 0 #7a4330;
+  transition: transform 100ms ease-in-out, box-shadow 100ms ease-in-out;
 }
 
 .btn-cta:hover {
-  background: var(--cta-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px hsl(var(--cta-shadow) / 0.25);
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 0 #7a4330;
 }
 
 .btn-cta:active {
-  transform: translateY(0);
-  box-shadow: 0 1px 4px hsl(var(--cta-shadow) / 0.2);
+  transform: translateY(6px);
+  box-shadow: none;
 }
 
 .btn-secondary {
@@ -261,7 +259,7 @@
   border: 1px solid var(--sage-200);
   background: rgba(255, 255, 255, 0.88);
   color: var(--brown-700);
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: var(--font-satoshi), sans-serif;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;

@@ -16,85 +16,37 @@ type DividerColors = {
 };
 
 const VARIANTS: Record<string, DividerColors> = {
-    // TrustBar (sage-800 #2d351f) → Stats (linen-200)
-    "trustbar-to-stats": {
-        layer1: "#485536",
-        layer2: "#3a4429",
-        layer3: "#2d351f",
-    },
-    // Services (sage-100 #e6ece0) → WhyGarden (forest #2f3c23)
-    "services-to-whygarden": {
-        layer1: "#c8d6b8",
-        layer2: "#d7e1cc",
-        layer3: "#e6ece0",
-    },
-    // WhyGarden (forest #2f3c23) → MeetPiotr (sage-100)
-    "whygarden-to-meetpiotr": {
-        layer1: "#485536",
-        layer2: "#3a4429",
-        layer3: "#2f3c23",
-    },
-    // MeetPiotr (sage-100 #e6ece0) → WhyUs (forest)
-    "meetpiotr-to-whyus": {
-        layer1: "#c8d6b8",
-        layer2: "#d7e1cc",
-        layer3: "#e6ece0",
-    },
-    // WhyUs (forest #2f3c23) → HowItWorks (sage-100)
-    "whyus-to-howitworks": {
-        layer1: "#485536",
-        layer2: "#3a4429",
-        layer3: "#2f3c23",
-    },
-    // HowItWorks (sage-100 #e6ece0) → Testimonials (forest)
-    "howitworks-to-testimonials": {
-        layer1: "#c8d6b8",
-        layer2: "#d7e1cc",
-        layer3: "#e6ece0",
-    },
-    // Testimonials (sage-50 #f4f7f0) → FAQ (sage-800 #2d351f)
-    "testimonials-to-faq": {
-        layer1: "#c8d6b8",
-        layer2: "#dce6d2",
-        layer3: "#f4f7f0",
-    },
-    // FAQ (sage-100 #e6ece0) → ServiceArea (forest)
-    "faq-to-servicearea": {
-        layer1: "#c8d6b8",
-        layer2: "#d7e1cc",
-        layer3: "#e6ece0",
-    },
-    // ServiceArea (forest #2f3c23) → Contact (sage-100)
-    "servicearea-to-contact": {
-        layer1: "#485536",
-        layer2: "#3a4429",
-        layer3: "#2f3c23",
-    },
-    // Contact (linen-100 #faf8f4) → Footer (sage-900 #1e2415)
-    "contact-to-footer": {
-        layer1: "#d8d0c0",
-        layer2: "#ede5d8",
+    // PainSection (linen-100 #faf8f4) -> TrustBar (sage-800 #2d351f)
+    "painsection-to-trustbar": {
+        layer1: "#c9c5b9",
+        layer2: "#e0dccf",
         layer3: "#faf8f4",
     },
-    // TrustBar (sage-800 #2d351f) → Services (sage-100 #e6ece0)
+    // TrustBar (sage-800 #2d351f) -> Services (linen-50 #fefdfb)
     "trustbar-to-services": {
         layer1: "#485536",
         layer2: "#3a4429",
         layer3: "#2d351f",
     },
-    // MeetPiotr (sage-800 #2d351f) → Testimonials (sage-50 #f4f7f0)
-    "meetpiotr-to-testimonials": {
-        layer1: "#485536",
-        layer2: "#3a4429",
-        layer3: "#2d351f",
-    },
-    // Services (sage-50 #f4f7f0) → MeetPiotr (sage-800 #2d351f)
+    // Services (linen-50 #fefdfb) -> MeetPiotr (forest #2f3c23)
     "services-to-meetpiotr": {
+        layer1: "#d0ccbe",
+        layer2: "#e8e5dc",
+        layer3: "#fefdfb",
+    },
+    // MeetPiotr (forest #2f3c23) -> Testimonials (sage-50 #f4f7f0)
+    "meetpiotr-to-testimonials": {
+        layer1: "#4e633d",
+        layer2: "#3f5031",
+        layer3: "#2f3c23",
+    },
+    // Testimonials (sage-50 #f4f7f0) -> FAQ (sage-800 #2d351f)
+    "testimonials-to-faq": {
         layer1: "#c8d6b8",
         layer2: "#dce6d2",
         layer3: "#f4f7f0",
     },
-    // FAQ (sage-800 #2d351f) → Contact (linen-100 #faf8f4)
+    // FAQ (sage-800 #2d351f) -> Contact (linen-100 #faf8f4)
     "faq-to-contact": {
         layer1: "#485536",
         layer2: "#3a4429",

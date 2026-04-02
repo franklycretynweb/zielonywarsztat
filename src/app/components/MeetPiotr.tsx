@@ -1,173 +1,104 @@
 "use client";
 
 import Image from "next/image";
-import ScrollReveal from "./ScrollReveal";
+import ScrollReveal, { StaggerReveal, StaggerChild } from "./ScrollReveal";
 import SectionDivider from "./SectionDivider";
-
-
-const reasons = [
-  {
-    title: "Bezpłatna wizyta",
-    desc: "Przyjedziemy, ocenimy teren i wycenimy — bez zobowiązań i ukrytych kosztów.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-        <polyline points="9 22 9 12 15 12 15 22" />
-      </svg>
-    ),
-  },
-  {
-    title: "Gwarancja jakości",
-    desc: "Coś nie wyszło? Wracamy i poprawiamy bezpłatnie. Bez dyskusji, bez drobnego druku.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <polyline points="9 12 11 14 15 10" />
-      </svg>
-    ),
-  },
-  {
-    title: "Bezpośredni kontakt z Piotrem",
-    desc: "Przez cały projekt masz mój numer. Żadnych pośredników, żadnych konsultantów.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Własny profesjonalny sprzęt",
-    desc: "Pracujemy własnym, profesjonalnym sprzętem — nie pożyczonym, nie z wypożyczalni.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Wywóz odpadów w cenie",
-    desc: "Trawa, gałęzie, korzenie — wywozimy wszystko. Teren zostawiamy czysty.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <polyline points="3 6 5 6 21 6" />
-        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
-      </svg>
-    ),
-  },
-  {
-    title: "Bez podwykonawców",
-    desc: "Zawsze przyjeżdżamy my — nie wynajmujemy obcych ekip. Wiesz dokładnie, kto pojawi się na Twojej posesji.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-        <circle cx="12" cy="7" r="4" />
-      </svg>
-    ),
-  },
-];
+import { LINKS } from "../lib/site";
 
 const proofFacts = [
-  "Rozmawiasz z Piotrem od pierwszego telefonu do końca prac",
-  "Na posesję przyjeżdża ta sama ekipa, którą poznajesz na wycenie",
-  "Pracujemy własnym sprzętem i zostawiamy po sobie porządek",
+  "Brak podwykonawców – zawsze przyjeżdża ten sam sprawdzony zespół",
+  "Prowadzę realizację bezpośrednio od darmowej wyceny aż do odbioru",
+  "Dysponujemy własnym, profesjonalnym sprzętem do każdej usługi",
+  "Wywóz odpadów po pracy i gwarancja jakości u nas to standard",
 ];
 
 export default function MeetPiotr() {
   return (
-    <section id="o-mnie" className="relative py-24 md:py-32 px-5 bg-sage-800">
+    <section id="o-mnie" className="relative bg-forest px-6 py-24 md:py-32">
       <SectionDivider variant="services-to-meetpiotr" />
 
-      <div className="max-w-5xl mx-auto relative z-[1]">
-        <ScrollReveal>
-          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16 mb-16">
-            {/* Photo — real work photo in circular frame */}
-            <div className="flex-shrink-0 relative">
-              <div className="w-48 h-48 lg:w-56 lg:h-56 rounded-full border-4 border-sage-600/60 overflow-hidden"
-                style={{ boxShadow: "var(--shadow-md)" }}>
-                <Image
-                  src="/photos/services/transplanting.webp"
-                  alt="Praca w ogrodzie"
-                  width={224}
-                  height={224}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              {/* Decorative leaf */}
-              <div className="absolute -top-3 -right-3 w-12 h-6 bg-sage-300/30 rounded-[0_80%_0_80%] -rotate-12" />
-              <div className="absolute -bottom-2 -left-2 w-10 h-5 bg-sage-300/25 rounded-[80%_0_80%_0] rotate-[25deg]" />
+      <div className="mx-auto max-w-6xl relative z-10">
+        <div className="grid gap-16 lg:grid-cols-[5fr_7fr] lg:gap-24 lg:items-center">
+          
+          {/* Left: Cinematic Photo */}
+          <ScrollReveal variant="left" duration={1.2} blur className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-2xl">
+              <Image
+                src="/photos/services/transplanting.webp"
+                alt="Piotr - praca w ogrodzie"
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
+              />
+              {/* Subtle inner border for premium magazine feel */}
+              <div className="pointer-events-none absolute inset-0 rounded-2xl border border-white/10" />
             </div>
+          </ScrollReveal>
 
-            {/* Story */}
-            <div className="max-w-xl lg:pt-4">
-              <span className="section-kicker section-kicker-left font-body text-sage-300">
+          {/* Right: Editorial Content */}
+          <div className="flex flex-col justify-center">
+            
+            <ScrollReveal variant="right" duration={0.8} delay={200} blur>
+              <span className="section-kicker section-kicker-left mb-6 font-body text-sage-300">
                 Właściciel firmy
               </span>
+              
               <h2
-                className="font-heading font-bold mb-8 text-linen-100"
-                style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
+                className="mb-8 text-balance font-heading font-bold leading-tight text-white"
+                style={{ fontSize: "clamp(2rem, 1.5rem + 2.5vw, 3.5rem)" }}
               >
-                Piotr prowadzi każdą realizację osobiście
+                Ogród to nie poligon. Traktujemy Twoją posesję z szacunkiem.
               </h2>
-              <p className="font-body text-white/65 text-lg leading-relaxed mb-4">
-                Lubię pracę, po której od razu widać efekt. W ogrodzie to czuć
-                najmocniej: porządek, świeżość i przestrzeń, z której znowu
-                chce się korzystać.
+              
+              <p className="mb-12 text-balance font-body text-xl font-medium leading-relaxed text-linen-100/90 md:text-2xl">
+                "Każdy ogród traktuję jak własną wizytówkę. Liczy się dla mnie szybkość, ale nie kosztem dokładności i przejrzystej komunikacji na każdym etapie prac."
               </p>
-              <p className="font-body text-white/55 text-lg leading-relaxed italic mb-8">
-                Każdy ogród traktuję jak swoją wizytówkę, dlatego liczy się dla
-                mnie nie tylko sam efekt, ale też dokładność, dobra komunikacja
-                i szacunek do miejsca, w którym pracuję.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {proofFacts.map((fact) => (
-                  <li
-                    key={fact}
-                    className="flex items-start gap-3 font-body text-white/65 leading-relaxed"
-                  >
-                    <span className="mt-2 h-2 w-2 rounded-full bg-sage-400 shrink-0" />
-                    <span>{fact}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 pt-6 border-t border-sage-600/50">
-                <p className="font-[var(--font-caveat),cursive] text-5xl text-linen-100 opacity-90 tracking-wider">Piotr</p>
-                <p className="font-body text-sm text-sage-300 mt-2 uppercase tracking-widest">Założyciel & Główny Wykonawca</p>
+            </ScrollReveal>
+
+            <StaggerReveal staggerDelay={0.15} delayChildren={0.6} className="mb-14 flex flex-col gap-5">
+              {proofFacts.map((fact) => (
+                <StaggerChild key={fact} variant="scale" blur>
+                  <div className="flex items-start gap-4">
+                    <div className="mt-1 shrink-0 rounded-full bg-terra-500/20 p-1.5 text-terra-400">
+                      <svg
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        className="h-5 w-5"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <p className="font-body text-lg leading-snug text-white/80">{fact}</p>
+                  </div>
+                </StaggerChild>
+              ))}
+            </StaggerReveal>
+
+            {/* Footer / CTA area */}
+            <ScrollReveal variant="up" duration={0.8} delay={800} className="flex flex-col items-start gap-8 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="font-[var(--font-caveat),cursive] text-5xl tracking-widest text-white opacity-90">
+                  Piotr
+                </p>
+                <p className="mt-2 font-body text-sm uppercase tracking-[0.2em] text-sage-300">
+                  Założyciel & Wykonawca
+                </p>
               </div>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        {/* Differentiators */}
-        <ScrollReveal>
-          <div className="text-center mb-12">
-            <span className="section-kicker font-body text-sage-300">Dlaczego my</span>
-            <h2
-              className="font-heading font-bold text-linen-100"
-              style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)" }}
-            >
-              Powody, dla których klienci polecają nas dalej
-            </h2>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            {reasons.map((r, index) => (
-              <div
-                key={r.title}
-                className="rounded-[1.5rem] border border-white/10 bg-sage-700/50 px-5 py-6 transition-colors duration-200 hover:bg-sage-700"
+              
+              <a
+                href={LINKS.tel}
+                className="btn-cta w-full text-center sm:w-auto"
               >
-                <div className="mb-4 text-sage-300">{r.icon}</div>
-                <p className="font-heading font-semibold text-lg text-linen-100 leading-snug mb-2">
-                  {r.title}
-                </p>
-                <p className="font-body text-white/60 leading-relaxed text-sm">
-                  {r.desc}
-                </p>
-              </div>
-            ))}
+                Umów darmową wycenę
+              </a>
+            </ScrollReveal>
+
           </div>
-        </ScrollReveal>
+        </div>
       </div>
     </section>
   );

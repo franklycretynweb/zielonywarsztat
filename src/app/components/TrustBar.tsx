@@ -13,9 +13,12 @@ const promises = [
   },
 ];
 
+import SectionDivider from "./SectionDivider";
+
 export default function TrustBar() {
   return (
-    <section className="bg-sage-800 py-10 md:py-12">
+    <section className="relative bg-sage-800 py-10 md:py-12">
+      <SectionDivider variant="painsection-to-trustbar" />
       <div className="max-w-6xl mx-auto px-5">
         <div className="grid gap-4 md:grid-cols-3">
           {promises.map((item) => (

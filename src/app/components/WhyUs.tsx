@@ -1,7 +1,7 @@
 "use client";
 
 import SectionDivider from "./SectionDivider";
-import ScrollReveal from "./ScrollReveal";
+import ScrollReveal, { StaggerReveal, StaggerChild } from "./ScrollReveal";
 
 const reasons = [
   {
@@ -56,33 +56,35 @@ export default function WhyUs() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {reasons.map((r, i) => (
-            <ScrollReveal key={r.title} delay={i * 100}>
-              <div
-                className="bg-white rounded-2xl p-7 border border-sage-100/80 h-full"
-                style={{ boxShadow: "var(--shadow-sm)" }}
-              >
-                <div className="w-12 h-12 mb-5 rounded-xl bg-sage-50 border border-sage-100 flex items-center justify-center overflow-hidden">
-                  <img
-                    src={r.iconSrc}
-                    alt=""
-                    className="w-7 h-7 object-contain"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).style.display = "none";
-                    }}
-                  />
+        <StaggerReveal staggerDelay={0.1}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {reasons.map((r, i) => (
+              <StaggerChild key={r.title} variant="up" blur>
+                <div
+                  className="bg-white rounded-2xl p-7 border border-sage-100/80 h-full"
+                  style={{ boxShadow: "var(--shadow-sm)" }}
+                >
+                  <div className="w-12 h-12 mb-5 rounded-xl bg-sage-50 border border-sage-100 flex items-center justify-center overflow-hidden">
+                    <img
+                      src={r.iconSrc}
+                      alt=""
+                      className="w-7 h-7 object-contain"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).style.display = "none";
+                      }}
+                    />
+                  </div>
+                  <h3 className="font-heading font-semibold text-lg text-brown-700 mb-2">
+                    {r.title}
+                  </h3>
+                  <p className="font-body text-brown-400 leading-relaxed">
+                    {r.desc}
+                  </p>
                 </div>
-                <h3 className="font-heading font-semibold text-lg text-brown-700 mb-2">
-                  {r.title}
-                </h3>
-                <p className="font-body text-brown-400 leading-relaxed">
-                  {r.desc}
-                </p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
+              </StaggerChild>
+            ))}
+          </div>
+        </StaggerReveal>
       </div>
     </section>
   );
