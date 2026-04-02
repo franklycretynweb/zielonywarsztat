@@ -17,7 +17,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-svh items-end overflow-hidden"
+      className="relative min-h-svh overflow-hidden bg-[#1a2818]"
     >
       {/* Background */}
       <Image
@@ -25,46 +25,84 @@ export default function Hero() {
         alt="Zadbany ogród po pielęgnacji"
         fill
         priority
-        className="object-cover object-center"
+        className="object-cover object-[center_20%] md:object-center"
         quality={90}
         sizes="100vw"
       />
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(10,18,11,0.55)_0%,rgba(10,18,11,0.25)_45%,rgba(10,18,11,0.05)_100%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(10,18,11,0.55)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(10,18,11,0.88)_0%,rgba(10,18,11,0.4)_40%,transparent_65%)]" />
 
-      {/* H1 + CTA — lewy dół */}
-      <div className="relative px-8 pb-16 md:px-14 md:pb-24">
+      {/* ── MOBILE: H1 góra, CTA dół ── */}
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease, delay: 0.05 }}
-          className="mb-8"
-        >
-          <a href={LINKS.tel} className="btn-cta">
-            Umów bezpłatną wycenę
-          </a>
-        </motion.div>
-
-        {/* Clip reveal na H1 */}
+      {/* H1 + subtitle mobile — top */}
+      <div className="absolute left-6 right-6 top-24 md:hidden">
         <div style={{ overflow: "hidden" }}>
           <motion.h1
             initial={{ y: "105%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 1.0, ease, delay: 0.3 }}
             className="font-heading font-extrabold text-white"
-            style={{ fontSize: "clamp(2.6rem, 1.6rem + 4vw, 5.5rem)" }}
+            style={{ fontSize: "clamp(3rem, 2rem + 4vw, 5.5rem)" }}
+          >
+            Zaplanuj swój<br />ogród na sezon 2026.
+          </motion.h1>
+        </div>
+
+      </div>
+
+      {/* H2 + CTA mobile — bottom (przy kciuku) */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease, delay: 0.05 }}
+        className="absolute bottom-10 left-6 right-6 md:hidden"
+      >
+        <p
+          className="mb-5 text-lg leading-relaxed text-white"
+          style={{ textShadow: "0 1px 12px rgba(0,0,0,0.7)" }}
+        >
+          Kiedy ogród zaczyna bardziej męczyć niż cieszyć, dobrze mieć po swojej stronie kogoś, kto zrobi z tym porządek.
+        </p>
+        <a href={LINKS.tel} className="btn-cta w-full justify-center">
+          Umów bezpłatną wycenę
+        </a>
+      </motion.div>
+
+      {/* ── DESKTOP: CTA + H1 stacked, bottom-left ── */}
+      <div className="absolute bottom-14 left-14 hidden md:block">
+        {/* CTA desktop */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.05 }}
+          className="mb-8 flex items-center gap-4"
+        >
+          <a href={LINKS.tel} className="btn-cta">
+            Umów bezpłatną wycenę
+          </a>
+          <a href="/porady" className="btn-hero-secondary">
+            Zobacz nasze porady
+          </a>
+        </motion.div>
+
+        {/* H1 desktop */}
+        <div style={{ overflow: "hidden" }}>
+          <motion.h1
+            initial={{ y: "105%" }}
+            animate={{ y: "0%" }}
+            transition={{ duration: 1.0, ease, delay: 0.3 }}
+            className="font-heading font-extrabold text-white"
+            style={{ fontSize: "clamp(3rem, 2rem + 4vw, 5.5rem)" }}
           >
             Zaplanuj swój<br />ogród na sezon 2026.
           </motion.h1>
         </div>
       </div>
 
-      {/* Chips + p — prawy dół */}
-      <div className="absolute bottom-16 right-8 md:bottom-24 md:right-14">
+      {/* Chips + p — prawy dół, tylko desktop */}
+      <div className="absolute bottom-14 right-14 hidden md:block">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
