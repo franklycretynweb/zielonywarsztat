@@ -41,7 +41,7 @@ export default function Page() {
             name: "Zielony Warsztat Piotra",
             telephone: "+48578816720",
             email: "biuro@zielonywarsztat.com",
-            url: "https://zielonywarsztat.pl",
+            url: "https://www.zielonywarsztat.com",
             areaServed: {
               "@type": "GeoCircle",
               geoMidpoint: {

@@ -26,7 +26,7 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
   if (!post) return {};
 
-  const url = `https://zielonywarsztat.pl/porady/${post.slug}`;
+  const url = `https://www.zielonywarsztat.com/porady/${post.slug}`;
 
   return {
     title: `${post.title} | Zielony Warsztat Piotra`,
@@ -65,26 +65,26 @@ export default async function BlogPostPage({
         "@type": "Article",
         headline: post.title,
         description: post.description,
-        image: `https://zielonywarsztat.pl${post.image}`,
+        image: `https://www.zielonywarsztat.com${post.image}`,
         datePublished: post.publishedAt,
         dateModified: post.publishedAt,
         author: {
           "@type": "Person",
           name: "Piotr",
-          url: "https://zielonywarsztat.pl",
+          url: "https://www.zielonywarsztat.com",
         },
         publisher: {
           "@type": "Organization",
           name: "Zielony Warsztat Piotra",
-          url: "https://zielonywarsztat.pl",
+          url: "https://www.zielonywarsztat.com",
           logo: {
             "@type": "ImageObject",
-            url: "https://zielonywarsztat.pl/photos/logo/logo.webp",
+            url: "https://www.zielonywarsztat.com/photos/logo/logo.webp",
           },
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": `https://zielonywarsztat.pl/porady/${post.slug}`,
+          "@id": `https://www.zielonywarsztat.com/porady/${post.slug}`,
         },
         articleSection: post.category,
         wordCount: post.sections.reduce(
@@ -95,9 +95,9 @@ export default async function BlogPostPage({
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://zielonywarsztat.pl" },
-          { "@type": "ListItem", position: 2, name: "Porady ogrodnicze", item: "https://zielonywarsztat.pl/porady" },
-          { "@type": "ListItem", position: 3, name: post.title, item: `https://zielonywarsztat.pl/porady/${post.slug}` },
+          { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://www.zielonywarsztat.com" },
+          { "@type": "ListItem", position: 2, name: "Porady ogrodnicze", item: "https://www.zielonywarsztat.com/porady" },
+          { "@type": "ListItem", position: 3, name: post.title, item: `https://www.zielonywarsztat.com/porady/${post.slug}` },
         ],
       },
     ],
@@ -283,7 +283,7 @@ export default async function BlogPostPage({
                     <CopyLinkButton />
                     {/* WhatsApp share */}
                     <a
-                      href={`https://wa.me/?text=${encodeURIComponent(post.title + " — zielonywarsztat.pl/porady/" + post.slug)}`}
+                      href={`https://wa.me/?text=${encodeURIComponent(post.title + " — www.zielonywarsztat.com/porady/" + post.slug)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 rounded-xl border border-[#25D366]/30 bg-[#25D366]/10 px-4 py-2.5 font-body text-sm font-medium text-[#1a8c43] transition-all hover:bg-[#25D366]/20"

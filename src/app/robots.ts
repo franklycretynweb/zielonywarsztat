@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: "https://zielonywarsztat.pl/sitemap.xml",
-    host: "https://zielonywarsztat.pl",
+    sitemap: "https://www.zielonywarsztat.com/sitemap.xml",
+    host: "https://www.zielonywarsztat.com",
   };
 }

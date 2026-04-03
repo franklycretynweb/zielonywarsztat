@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { posts } from "./porady/lib/posts";
 
-const BASE_URL = "https://zielonywarsztat.pl";
+const BASE_URL = "https://www.zielonywarsztat.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [

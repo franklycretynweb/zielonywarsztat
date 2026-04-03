@@ -25,7 +25,7 @@ const satoshi = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zielonywarsztat.pl"),
+  metadataBase: new URL("https://www.zielonywarsztat.com"),
   title: {
     default: "Zielony Warsztat Piotra — Usługi ogrodnicze Szczecin",
     template: "%s | Zielony Warsztat Piotra",
@@ -42,12 +42,12 @@ export const metadata: Metadata = {
     "kostka brukowa Szczecin",
   ],
   alternates: {
-    canonical: "https://zielonywarsztat.pl",
+    canonical: "https://www.zielonywarsztat.com",
   },
   openGraph: {
     type: "website",
     locale: "pl_PL",
-    url: "https://zielonywarsztat.pl",
+    url: "https://www.zielonywarsztat.com",
     siteName: "Zielony Warsztat Piotra",
     title: "Zielony Warsztat Piotra — Usługi ogrodnicze Szczecin",
     description:
@@ -83,15 +83,15 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://zielonywarsztat.pl/#business",
+  "@id": "https://www.zielonywarsztat.com/#business",
   name: "Zielony Warsztat Piotra",
   description:
     "Profesjonalne usługi ogrodnicze w Szczecinie i okolicach: pielęgnacja trawników, przycinanie krzewów i żywopłotów, wycinki, nasadzenia, zakładanie ogrodów, kostka brukowa.",
-  url: "https://zielonywarsztat.pl",
+  url: "https://www.zielonywarsztat.com",
   telephone: "+48578816720",
   email: "biuro@zielonywarsztat.com",
-  image: "https://zielonywarsztat.pl/photos/og_image.webp",
-  logo: "https://zielonywarsztat.pl/photos/logo_duze.webp",
+  image: "https://www.zielonywarsztat.com/photos/og_image.webp",
+  logo: "https://www.zielonywarsztat.com/photos/logo_duze.webp",
   priceRange: "$$",
   currenciesAccepted: "PLN",
   paymentAccepted: "Gotówka, przelew",
@@ -133,7 +133,7 @@ const localBusinessSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Pielęgnacja trawników",
-          url: "https://zielonywarsztat.pl/pielegnacja-trawnikow-szczecin",
+          url: "https://www.zielonywarsztat.com/pielegnacja-trawnikow-szczecin",
         },
       },
       {
@@ -141,7 +141,7 @@ const localBusinessSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Przycinanie krzewów i drzewek",
-          url: "https://zielonywarsztat.pl/przycinanie-krzewow-i-drzewek-szczecin",
+          url: "https://www.zielonywarsztat.com/przycinanie-krzewow-i-drzewek-szczecin",
         },
       },
       {
@@ -149,7 +149,7 @@ const localBusinessSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Wycinki kompleksowe",
-          url: "https://zielonywarsztat.pl/wycinki-kompleksowe-szczecin",
+          url: "https://www.zielonywarsztat.com/wycinki-kompleksowe-szczecin",
         },
       },
       {
@@ -157,7 +157,7 @@ const localBusinessSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Nasadzanie i przesadzanie roślin",
-          url: "https://zielonywarsztat.pl/nasadzanie-i-przesadzanie-roslin-szczecin",
+          url: "https://www.zielonywarsztat.com/nasadzanie-i-przesadzanie-roslin-szczecin",
         },
       },
       {
@@ -165,7 +165,7 @@ const localBusinessSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Zakładanie ogrodów",
-          url: "https://zielonywarsztat.pl/zakladanie-ogrodow-szczecin",
+          url: "https://www.zielonywarsztat.com/zakladanie-ogrodow-szczecin",
         },
       },
       {
@@ -173,7 +173,7 @@ const localBusinessSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Układanie kostki brukowej",
-          url: "https://zielonywarsztat.pl/kostka-brukowa-szczecin",
+          url: "https://www.zielonywarsztat.com/kostka-brukowa-szczecin",
         },
       },
     ],
