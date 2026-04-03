@@ -22,7 +22,7 @@ export default function Hero() {
     >
       {/* Background */}
       <Image
-        src="/photos/herobg/heroBG.webp"
+        src="/photos/herobg/herobg.webp"
         alt="Zadbany ogród po pielęgnacji"
         fill
         priority
