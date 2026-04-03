@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import ScrollReveal, { StaggerReveal, StaggerChild } from "./ScrollReveal";
+import ScrollReveal from "./ScrollReveal";
 import SectionDivider from "./SectionDivider";
+import { serviceOptions } from "@/app/lib/contact";
 
 const steps = [
   {
@@ -32,22 +33,57 @@ const towns = [
   "Świnoujście",
 ];
 
-const serviceOptions = [
-  "Pielęgnacja trawników",
-  "Przycinanie krzewów i drzewek",
-  "Wycinki kompleksowe",
-  "Nasadzanie i przesadzanie roślin",
-  "Projektowanie i zakładanie ogrodów",
-  "Układanie kostki brukowej",
-  "Nie wiem — chcę porozmawiać",
-];
-
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    setError(null);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          phone: formData.get("phone"),
+          service: formData.get("service"),
+          message: formData.get("message"),
+          website: formData.get("website"),
+          page: window.location.href,
+        }),
+      });
+
+      const payload = (await response.json().catch(() => null)) as
+        | { error?: string }
+        | null;
+
+      if (!response.ok) {
+        throw new Error(
+          payload?.error || "Nie udało się wysłać formularza. Spróbuj ponownie.",
+        );
+      }
+
+      form.reset();
+      setSubmitted(true);
+    } catch (submissionError) {
+      setError(
+        submissionError instanceof Error
+          ? submissionError.message
+          : "Nie udało się wysłać formularza. Spróbuj ponownie.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -190,6 +226,13 @@ export default function Contact() {
                 <p className="font-body text-foreground/60 leading-relaxed">
                   Piotr oddzwoni osobiście — zwykle w ciągu 2 godzin, najdalej następnego dnia roboczego.
                 </p>
+                <button
+                  type="button"
+                  onClick={() => setSubmitted(false)}
+                  className="mt-8 inline-flex items-center justify-center rounded-full border border-sage-300 px-6 py-3 font-body font-medium text-foreground transition-colors hover:border-sage-400 hover:bg-sage-50"
+                >
+                  Wyślij kolejne zapytanie
+                </button>
               </div>
             ) : (
               <form
@@ -233,6 +276,8 @@ export default function Contact() {
                     </label>
                     <input
                       type="text"
+                      name="name"
+                      autoComplete="name"
                       required
                       placeholder="np. Jan Kowalski"
                       className="w-full px-0 py-2.5 border-b-2 border-sage-300 font-body text-foreground text-lg focus:outline-none focus:border-foreground transition-colors bg-transparent placeholder:text-foreground/40"
@@ -245,6 +290,8 @@ export default function Contact() {
                     </label>
                     <input
                       type="tel"
+                      name="phone"
+                      autoComplete="tel"
                       required
                       placeholder="np. 600 123 456"
                       className="w-full px-0 py-2.5 border-b-2 border-sage-300 font-body text-foreground text-lg focus:outline-none focus:border-foreground transition-colors bg-transparent placeholder:text-foreground/40"
@@ -256,6 +303,7 @@ export default function Contact() {
                       Czego potrzebujesz?
                     </label>
                     <select
+                      name="service"
                       required
                       className="w-full px-0 py-2.5 border-b-2 border-sage-300 font-body text-foreground text-lg focus:outline-none focus:border-foreground transition-colors bg-transparent appearance-none rounded-none cursor-pointer"
                       defaultValue=""
@@ -277,16 +325,38 @@ export default function Contact() {
                       <span className="text-foreground/45 font-normal lowercase tracking-normal">(opcjonalne)</span>
                     </label>
                     <textarea
+                      name="message"
                       rows={2}
                       placeholder="Opisz krótko co potrzebujesz..."
                       className="w-full px-0 py-2.5 border-b-2 border-sage-300 font-body text-foreground text-lg focus:outline-none focus:border-foreground transition-colors bg-transparent resize-none placeholder:text-foreground/40"
                     />
                   </div>
+
+                  <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                    <label htmlFor="website">Twoja strona</label>
+                    <input
+                      id="website"
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
                 </div>
 
-                <button type="submit" className="btn-cta w-full !text-lg !py-4 mt-10">
-                  Wyślij — odpiszemy w 2h
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-cta w-full !text-lg !py-4 mt-10 disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  {isSubmitting ? "Wysyłamy..." : "Wyślij — odpiszemy w 2h"}
                 </button>
+
+                {error ? (
+                  <p className="mt-4 rounded-2xl border border-[#d9b7a6] bg-[#fff6f1] px-4 py-3 font-body text-sm text-[#8b4a2d]">
+                    {error}
+                  </p>
+                ) : null}
 
                 <p className="text-center font-body text-foreground/45 text-xs mt-4 flex items-center justify-center gap-1.5">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-3.5 h-3.5">

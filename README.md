@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Contact Form
+
+The contact form submits to `POST /api/contact` and sends an email through Resend.
+
+1. Copy `.env.example` to `.env.local`.
+2. Fill in `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and `CONTACT_FROM_EMAIL`.
+3. Make sure the sender domain used in `CONTACT_FROM_EMAIL` is verified in Resend.
+
+Without these environment variables, the form will show a configuration error instead of pretending that it was sent.
+
 ## Getting Started
 
 First, run the development server:
