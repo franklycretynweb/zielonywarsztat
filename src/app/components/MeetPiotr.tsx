@@ -24,7 +24,7 @@ export default function MeetPiotr() {
           <ScrollReveal variant="left" duration={1.2} blur className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-2xl">
               <Image
-                src="/photos/services/transplanting.webp"
+                src="/photos/about_section.webp"
                 alt="Piotr - praca w ogrodzie"
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"
@@ -51,7 +51,7 @@ export default function MeetPiotr() {
               </h2>
               
               <p className="mb-12 text-balance font-body text-xl font-medium leading-relaxed text-linen-100/90 md:text-2xl">
-                "Każdy ogród traktuję jak własną wizytówkę. Liczy się dla mnie szybkość, ale nie kosztem dokładności i przejrzystej komunikacji na każdym etapie prac."
+                &quot;Każdy ogród traktuję jak własną wizytówkę. Liczy się dla mnie szybkość, ale nie kosztem dokładności i przejrzystej komunikacji na każdym etapie prac.&quot;
               </p>
             </ScrollReveal>
 

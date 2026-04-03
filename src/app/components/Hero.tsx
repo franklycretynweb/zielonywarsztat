@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { LINKS } from "../lib/site";
 
-const chips = [
-  "Pielęgnacja",
-  "Nasadzenia",
-  "Porządki",
+const services = [
+  "Pielęgnacja trawników",
+  "Przycinanie i wycinki",
+  "Nasadzenia roślin",
   "Kostka brukowa",
 ];
 
@@ -21,12 +22,12 @@ export default function Hero() {
     >
       {/* Background */}
       <Image
-        src="/photos/herobg/herobg2.jpg"
+        src="/photos/herobg/heroBG.webp"
         alt="Zadbany ogród po pielęgnacji"
         fill
         priority
         className="object-cover object-[center_20%] md:object-center"
-        quality={90}
+        quality={82}
         sizes="100vw"
       />
 
@@ -46,7 +47,7 @@ export default function Hero() {
             className="font-heading font-extrabold text-white"
             style={{ fontSize: "clamp(3rem, 2rem + 4vw, 5.5rem)" }}
           >
-            Zaplanuj swój<br />ogród na sezon 2026.
+            Masz ogród.<br />My mamy na niego czas.
           </motion.h1>
         </div>
 
@@ -82,9 +83,9 @@ export default function Hero() {
           <a href={LINKS.tel} className="btn-cta">
             Umów bezpłatną wycenę
           </a>
-          <a href="/porady" className="btn-hero-secondary">
+          <Link href="/porady" className="btn-hero-secondary">
             Zobacz nasze porady
-          </a>
+          </Link>
         </motion.div>
 
         {/* H1 desktop */}
@@ -96,39 +97,39 @@ export default function Hero() {
             className="font-heading font-extrabold text-white"
             style={{ fontSize: "clamp(3rem, 2rem + 4vw, 5.5rem)" }}
           >
-            Zaplanuj swój<br />ogród na sezon 2026.
+            Masz ogród.<br />My mamy na niego czas.
           </motion.h1>
         </div>
       </div>
 
-      {/* Chips + p — prawy dół, tylko desktop */}
-      <div className="absolute bottom-14 right-14 hidden md:block">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease, delay: 0.75 }}
-          className="flex flex-nowrap gap-2"
-        >
-          {chips.map((chip, i) => (
-            <motion.span
-              key={chip}
-              initial={{ opacity: 0, x: 12 }}
+      {/* Numbered services list — prawy środek, tylko desktop */}
+      <div className="absolute right-14 top-1/2 hidden -translate-y-1/2 md:block">
+        <div className="flex flex-col gap-4">
+          {services.map((service, i) => (
+            <motion.div
+              key={service}
+              initial={{ opacity: 0, x: 16 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, ease, delay: 0.8 + i * 0.07 }}
-              className="rounded-full bg-[#e0a580] px-3 py-1 font-heading text-sm font-bold text-[#2d351f]"
+              transition={{ duration: 0.5, ease, delay: 0.7 + i * 0.1 }}
+              className="flex items-center gap-3"
             >
-              {chip}
-            </motion.span>
+              <span className="font-heading text-sm font-medium text-white/50 tabular-nums">
+                0{i + 1}
+              </span>
+              <span className="h-px w-6 bg-white/30" />
+              <span className="font-body text-base font-medium text-white/85">
+                {service}
+              </span>
+            </motion.div>
           ))}
-        </motion.div>
-
+        </div>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease, delay: 1.1 }}
-          className="mt-3 text-right text-sm leading-relaxed text-white/65"
+          transition={{ duration: 0.6, ease, delay: 1.2 }}
+          className="mt-5 text-right font-body text-xs text-white/50"
         >
-          Szczecin i okolice. Bezpośredni kontakt z Piotrem.
+          Szczecin i okolice do 50 km.
         </motion.p>
       </div>
     </section>

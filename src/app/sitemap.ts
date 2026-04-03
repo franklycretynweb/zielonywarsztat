@@ -1,62 +1,76 @@
 import { MetadataRoute } from "next";
 import { posts } from "./porady/lib/posts";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://zielonywarsztat.pl";
+const BASE_URL = "https://zielonywarsztat.pl";
 
+export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
+      url: BASE_URL,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 1,
+      priority: 1.0,
+    },
+    // Strony usług — najważniejsze poza homepage
+    {
+      url: `${BASE_URL}/pielegnacja-trawnikow-szczecin`,
+      lastModified: new Date("2025-03-01"),
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
     {
-      url: `${baseUrl}/porady`,
+      url: `${BASE_URL}/przycinanie-krzewow-i-drzewek-szczecin`,
+      lastModified: new Date("2025-03-01"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wycinki-kompleksowe-szczecin`,
+      lastModified: new Date("2025-03-01"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/nasadzanie-i-przesadzanie-roslin-szczecin`,
+      lastModified: new Date("2025-03-01"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/zakladanie-ogrodow-szczecin`,
+      lastModified: new Date("2025-03-01"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/kostka-brukowa-szczecin`,
+      lastModified: new Date("2025-03-01"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    // Strony pomocnicze
+    {
+      url: `${BASE_URL}/porady`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/pielegnacja-trawnikow-szczecin`,
-      lastModified: new Date(),
+      url: `${BASE_URL}/jak-pracujemy`,
+      lastModified: new Date("2025-03-01"),
       changeFrequency: "monthly",
-      priority: 0.9,
+      priority: 0.7,
     },
     {
-      url: `${baseUrl}/przycinanie-krzewow-i-drzewek-szczecin`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/wycinki-kompleksowe-szczecin`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/nasadzanie-i-przesadzanie-roslin-szczecin`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/zakladanie-ogrodow-szczecin`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/kostka-brukowa-szczecin`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
+      url: `${BASE_URL}/kontakt`,
+      lastModified: new Date("2025-03-01"),
+      changeFrequency: "yearly",
+      priority: 0.6,
     },
   ];
 
   const blogRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${baseUrl}/porady/${post.slug}`,
+    url: `${BASE_URL}/porady/${post.slug}`,
     lastModified: new Date(post.publishedAt),
     changeFrequency: "monthly" as const,
     priority: 0.7,

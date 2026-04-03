@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import SectionDivider from "./SectionDivider";
 import ScrollReveal, { StaggerReveal, StaggerChild } from "./ScrollReveal";
 
@@ -58,17 +59,20 @@ export default function WhyUs() {
 
         <StaggerReveal staggerDelay={0.1}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {reasons.map((r, i) => (
+            {reasons.map((r) => (
               <StaggerChild key={r.title} variant="up" blur>
                 <div
                   className="bg-white rounded-2xl p-7 border border-sage-100/80 h-full"
                   style={{ boxShadow: "var(--shadow-sm)" }}
                 >
                   <div className="w-12 h-12 mb-5 rounded-xl bg-sage-50 border border-sage-100 flex items-center justify-center overflow-hidden">
-                    <img
+                    <Image
                       src={r.iconSrc}
                       alt=""
-                      className="w-7 h-7 object-contain"
+                      width={28}
+                      height={28}
+                      unoptimized
+                      className="h-7 w-7 object-contain"
                       onError={(e) => {
                         (e.currentTarget as HTMLImageElement).style.display = "none";
                       }}

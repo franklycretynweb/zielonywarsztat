@@ -6,6 +6,7 @@ import Link from "next/link";
 import { CONTACT, LINKS, SERVICES } from "../lib/site";
 
 const navLinks = [
+  { label: "Strona główna", href: "/", hasDropdown: false },
   { label: "Usługi", href: "#uslugi", hasDropdown: true },
   { label: "Porady", href: "/porady", hasDropdown: false },
   { label: "Kontakt", href: "/kontakt", hasDropdown: false },
@@ -53,9 +54,9 @@ export default function Nav() {
         <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between px-8">
 
           {/* Logo */}
-          <Link href="/" className={`shrink-0 transition-all duration-300 ${scrolled ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+          <Link href="/" className="shrink-0">
             <Image
-              src="/photos/logo_duze.png"
+              src="/photos/logo_duze.webp"
               width={160}
               height={48}
               alt="Zielony Warsztat Piotra"
@@ -173,7 +174,7 @@ export default function Nav() {
         <div className="flex items-center px-6 pt-5">
           <Link href="/" onClick={() => setMenuOpen(false)}>
             <Image
-              src="/photos/logo_duze.png"
+              src="/photos/logo_duze.webp"
               width={140}
               height={42}
               alt="Zielony Warsztat Piotra"

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Em = ({ children }: { children: React.ReactNode }) => (
   <em className="not-italic font-bold" style={{ color: "var(--terra-600)", textDecorationLine: "underline", textDecorationColor: "var(--terra-300)", textUnderlineOffset: "3px" }}>
@@ -15,7 +16,7 @@ const pains = [
   },
   {
     label: <>
-      <Em>Obietnic</Em> 'będzie pięknie' bez żadnego planu ani zakresu
+      <Em>Obietnic</Em> &rsquo;będzie pięknie&rsquo; bez żadnego planu ani zakresu
     </>,
     img: "/photos/02_ilustracja.svg",
     imgOffset: "30px",
@@ -46,11 +47,14 @@ export default function PainSection() {
               className="flex flex-col overflow-hidden rounded-2xl border border-foreground/8 bg-white"
             >
               <div className="relative aspect-square w-full overflow-hidden bg-linen-200">
-                <img
+                <Image
                   src={pain.img}
                   alt=""
                   aria-hidden
-                  className="h-full w-full object-cover"
+                  fill
+                  unoptimized
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover"
                   style={"imgOffset" in pain ? { transform: `translateY(${pain.imgOffset})` } : undefined}
                 />
                 <span
@@ -74,9 +78,11 @@ export default function PainSection() {
           style={{ fontSize: "clamp(1.5rem, 1rem + 1.6vw, 2.2rem)" }}
         >
           <span>Dlatego stworzyliśmy</span>
-          <img
-            src="/photos/logo_duze.png"
+          <Image
+            src="/photos/logo_duze.webp"
             alt="Zielony Warsztat Piotra"
+            width={160}
+            height={160}
             className="inline-block h-10 w-auto"
           />
           <span>Zielony Warsztat Piotra.</span>

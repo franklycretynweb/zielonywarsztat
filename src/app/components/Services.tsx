@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import ScrollReveal, { StaggerReveal, StaggerChild } from "./ScrollReveal";
 import { LINKS } from "../lib/site";
 
@@ -10,36 +11,42 @@ const services = [
     desc: "Od pustej działki do gotowego ogrodu z trawnikiem, rabatami i sensownym układem przestrzeni.",
     image: "/photos/services/gardendesign.webp",
     colClass: "md:col-span-2 lg:col-span-2",
+    href: "/zakladanie-ogrodow-szczecin",
   },
   {
     name: "Przycinanie krzewów i drzewek",
     desc: "Formowanie żywopłotów i cięcie roślin tak, żeby ogród był zadbany przez cały sezon.",
     image: "/photos/services/pruning.webp",
     colClass: "col-span-1",
+    href: "/przycinanie-krzewow-i-drzewek-szczecin",
   },
   {
     name: "Pielęgnacja trawników",
     desc: "Koszenie, nawożenie i wertykulacja, dzięki którym trawnik znowu wygląda równo i zdrowo.",
     image: "/photos/services/lawncare.webp",
     colClass: "md:col-span-2 lg:col-span-2",
+    href: "/pielegnacja-trawnikow-szczecin",
   },
   {
     name: "Wycinki kompleksowe",
     desc: "Usuwamy drzewa i krzewy, wywozimy odpady i zostawiamy po sobie czysty teren.",
     image: "/photos/services/treeremoval.webp",
     colClass: "col-span-1",
+    href: "/wycinki-kompleksowe-szczecin",
   },
   {
     name: "Układanie kostki brukowej",
     desc: "Podjazdy, tarasy i ścieżki wykonane równo i na solidnej podbudowie.",
     image: "/photos/services/paving.webp",
     colClass: "md:col-span-2 lg:col-span-2",
+    href: "/kostka-brukowa-szczecin",
   },
   {
     name: "Nasadzanie i przesadzanie",
     desc: "Dobieramy rośliny do gleby, światła i stylu ogrodu, żeby miały szansę naprawdę się przyjąć.",
     image: "/photos/services/planting.webp",
     colClass: "col-span-1",
+    href: "/nasadzanie-i-przesadzanie-roslin-szczecin",
   },
 ];
 
@@ -117,8 +124,8 @@ export default function Services() {
                           Umów wycenę
                         </a>
                       )}
-                      <a
-                        href="#"
+                      <Link
+                        href={service.href}
                         className={`group/link inline-flex items-center gap-2 text-sm font-bold text-accent transition-colors hover:text-accent-hover ${!isBig ? "w-full justify-end" : ""
                           }`}
                       >
@@ -126,7 +133,7 @@ export default function Services() {
                         <span className="transition-transform group-hover/link:translate-x-1">
                           →
                         </span>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </article>

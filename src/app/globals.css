@@ -224,7 +224,7 @@
   justify-content: center;
   gap: 0.65rem;
   padding: 0.875rem 2rem;
-  background: #e0a580;
+  background: rgba(224, 165, 128, 0.88);
   color: white;
   font-family: var(--font-heading), sans-serif;
   font-size: 1rem;

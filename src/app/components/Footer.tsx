@@ -10,7 +10,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
       <div className="absolute bottom-0 left-0 right-0 z-0 pointer-events-none w-full">
         {/* We use an unconstrained img or Next Image here so it anchors to the bottom and scales width */}
         <Image
-          src="/photos/footerbg/footer_bg.png"
+          src="/photos/footerbg/footer_bg.webp"
           alt="Krajobraz ogrodowy"
           width={1920}
           height={1080}
@@ -56,7 +56,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
           {/* Brand */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left">
             <Image
-              src="/photos/logo_duze.png"
+              src="/photos/logo_duze.webp"
               height={160}
               width={500}
               alt="Zielony Warsztat Piotra"

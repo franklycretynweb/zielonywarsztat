@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { posts, CATEGORIES, type Category } from "./lib/posts";
 import FeaturedArticle from "./components/FeaturedArticle";
 import ArticleCard from "./components/ArticleCard";
@@ -35,8 +36,18 @@ export default function BlogIndexPage() {
     <main id="main-content">
       {/* ═══ HERO ═══ */}
       <section className="relative flex min-h-[48vh] items-end overflow-hidden bg-[#1e2415] pt-16">
-        {/* Atmospheric gradient */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(106,122,92,0.25),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(90,60,30,0.12),transparent_50%)]" />
+        {/* Background photo */}
+        <Image
+          src="/photos/herobg/heroBG_porady.webp"
+          alt="Ogród z poradami ogrodniczymi"
+          fill
+          priority
+          className="object-cover object-center"
+          quality={85}
+          sizes="100vw"
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-[#1e2415]/70" />
 
         {/* Decorative "leaf" big number */}
         <span
