@@ -143,13 +143,40 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
 
         {/* Bottom bar - positioned at the very bottom, over the image */}
         <div className="absolute bottom-0 left-0 w-full px-6 pb-6">
-          <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="rounded-full bg-white/90 px-4 py-2 font-body text-sm font-bold text-foreground backdrop-blur-sm shadow-sm">
-              &copy; {new Date().getFullYear()} Zielony Warsztat Piotra.
-            </p>
-            <p className="rounded-full bg-white/90 px-4 py-2 font-body text-sm font-bold text-foreground backdrop-blur-sm shadow-sm">
-              Szczecin i okolice do 50 km
-            </p>
+          <div className="mx-auto max-w-6xl">
+            {/* Signature */}
+            <div className="mb-6 flex justify-center md:justify-end">
+              <a
+                href="https://www.createoffscript.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center rounded-2xl bg-white/90 px-5 py-3 shadow-sm backdrop-blur-sm md:items-end"
+              >
+                <span className="mb-1.5 font-body text-[10px] uppercase tracking-widest text-[#b86b4a]">
+                  Strona stworzona przez
+                </span>
+                {/* Desktop ANSI Shadow ASCII Art */}
+                <pre
+                  className="hidden text-[5px] leading-[1.2] text-[#b86b4a] whitespace-pre select-none pointer-events-none md:block"
+                  style={{ fontFamily: "monospace" }}
+                >
+                  {` ██████╗ ███████╗███████╗███████╗ ██████╗██████╗ ██╗██████╗ ████████╗\n██╔═══██╗██╔════╝██╔════╝██╔════╝██╔════╝██╔══██╗██║██╔══██╗╚══██╔══╝\n██║   ██║█████╗  █████╗  ███████╗██║     ██████╔╝██║██████╔╝   ██║   \n██║   ██║██╔══╝  ██╔══╝  ╚════██║██║     ██╔══██╗██║██╔═══╝    ██║   \n╚██████╔╝██║     ██║     ███████║╚██████╗██║  ██║██║██║        ██║   \n ╚═════╝ ╚═╝     ╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝`}
+                </pre>
+                {/* Mobile Simple Text */}
+                <span className="font-mono text-xs font-bold tracking-[0.2em] text-[#b86b4a] md:hidden">
+                  OFFSCRIPT
+                </span>
+              </a>
+            </div>
+
+            <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+              <p className="rounded-full bg-white/90 px-4 py-2 font-body text-sm font-bold text-foreground backdrop-blur-sm shadow-sm">
+                &copy; {new Date().getFullYear()} Zielony Warsztat Piotra.
+              </p>
+              <p className="rounded-full bg-white/90 px-4 py-2 font-body text-sm font-bold text-foreground backdrop-blur-sm shadow-sm">
+                Szczecin i okolice do 50 km
+              </p>
+            </div>
           </div>
         </div>
       </div>
